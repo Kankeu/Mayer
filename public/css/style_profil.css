@@ -1,0 +1,17 @@
+body{
+    background:#eee;
+    zoom:90%;
+}
+.navmodifie{
+    background-color: #349BDB;
+}
+.search input {padding:0px 0; border: medium none; border-radius: 3px 0 0 3px; height: 36px; line-height: 18px;  width: 0; -webkit-transition: all 1s ease-in-out; -moz-transition: all 1s ease-in-out;
+-o-transition: all 1s ease-in-out; transition: all 1s ease-in-out;}
+.search:hover input, .search input:focus { width: 300px; margin-left: 0px;}
+.btn-search{background: #FD3A13; border-color: #FD3A13; color: #fff; padding: 7px 10px}
+.btn-search:hover{background: #ca1b1b; border-color: #ca1b1b}
+.searchs {padding:0px 0; right: 10px;right: 0px;overflow-y: hidden;position: absolute;position: fixed;top:65px;border: medium none; border-radius: 3px 0 0 3px; height: 36px; line-height: 18px;  width: 15px; -webkit-transition: all 1s ease-in-out; -moz-transition: all 1s ease-in-out;
+-o-transition: all 1s ease-in-out; transition: all 1s ease-in-out;}
+.searchs:hover  { width:250px; right: 0;overflow-y: auto;}
+.btn-search{background: #FD3A13; border-color: #FD3A13; color: #fff; padding: 7px 10px}
+.btn-search:hover{background: #ca1b1b; border-color: #ca1b1b}

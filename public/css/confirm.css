@@ -1,0 +1,17 @@
+#photo_preview{
+    width: 150px;
+    height: 150px;
+}
+#container{
+    background: white;
+    margin-top: 110px
+}
+#recupPs{
+    color:black;
+}
+.modal-footer{
+ color: black;
+}
+.modal-body{
+    color: black;
+}

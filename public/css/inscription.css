@@ -1,0 +1,21 @@
+body{
+    color:black;
+    text-align: left;
+}
+#form{
+    margin-top: 100px;
+}
+#inscription{
+    background: white;
+}
+#recupPs{
+    color:black;
+}
+.modal-footer{
+    color: black;
+}
+.modal-body{
+    color: black;
+}
+
+

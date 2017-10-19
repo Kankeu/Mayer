@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	padding: 0px;
+	margin: 0px;
+}
+.navmodifie{
+	background-color: #349BDB;
+}
+nav a{
+	color: aliceblue;
+	text-decoration: none;
+	
+}
+nav a:hover{
+	border-style: none;
+	color: black;
+}
+img{
+	width:100%;
+	max-width:100%;
+}
+.ddp{
+	margin-right:0px;
+}
+.img-banner{
+	padding-top:50px;
+}
+.present h1{
+	border:1px #324EF4 solid;
+	border-radius: 5px;
+	background-color:#0550FF;
+	color:#FFFFFF;
+}
+.Apropos{
+	margin-top:50px;
+}
+.present h2{
+	border-bottom:1px #324EF4 solid;
+	border-left:1px #324EF4 solid;
+	border-radius: 5px;
+	
+}
+.present:first-of-type{
+	color:#336B33;
+}
+.present:nth-child(2){
+	color:#5D2E2D;
+}
+.present:nth-child(3){
+	color:#0550FF;
+}
+.presentcontent:first-of-type{
+	border-left:#0550FF solid 1px;
+}
+.presentcontent:nth-child(2){
+	border-left:#0550FF solid 1px;
+}
+.presentcontent:nth-child(3){
+	border-left:#0550FF solid 1px;
+}
+.presentcontent p{
+	line-height:25px;
+	font-size: 14px;
+	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+}
+.presentcontent:first-of-type{
+	color: #336B33;
+}
+.presentcontent:nth-child(2){
+	color: #5D2E2D;
+}
+.presentcontent:nth-child(3){
+	color: #0550FF;
+}
+.section1{
+	margin-top: 20px;
+}
+.well{
+	background-color:#FFFFFF;
+}
+ footer .well{
+	 padding: 6px;
+	 border-radius: 0px;
+	 background-color:#E5E5E5;
+}
+footer ul li a{
+	color: black;
+}
+footer ul{
+	font-size: 11px;
+	padding-top: 20px;
+	float: left;
+	list-style-type: none;
+	padding-left: 0px;
+}
+.loginconfig{
+	margin-top: 80px;
+}
