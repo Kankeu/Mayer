@@ -51,7 +51,7 @@
                          <md-icon>search</md-icon>
                      </md-input-container>
                      <md-list v-if="autocomplete">
-                         <md-list-item v-for="item,index in autocomplete" v-if="index<5" @click.stop="select(item.nom)">
+                         <md-list-item v-for="item,index in autocomplete" v-if="index<5" :key="index" @click.stop="select(item.nom)">
                              <span>{{item.nom}}</span>
                              <md-button class="md-icon-button"  @click.stop="remove(index)"><md-icon>close</md-icon></md-button>
                          </md-list-item>
@@ -167,7 +167,6 @@
 }
 
 #main-content {
-    position: relative;
     z-index: 1;
     margin-top: 70px;
 }

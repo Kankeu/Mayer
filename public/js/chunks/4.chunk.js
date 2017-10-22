@@ -1578,10 +1578,13 @@ var render = function() {
                                               placeholder: "Jour"
                                             }
                                           },
-                                          _vm._l(31, function(i) {
+                                          _vm._l(31, function(i, index) {
                                             return _c(
                                               "md-option",
-                                              { attrs: { value: i } },
+                                              {
+                                                key: index,
+                                                attrs: { value: i }
+                                              },
                                               [_vm._v(_vm._s(i))]
                                             )
                                           })
@@ -1634,7 +1637,10 @@ var render = function() {
                                           _vm._l(_vm.mois, function(item, i) {
                                             return _c(
                                               "md-option",
-                                              { attrs: { value: item } },
+                                              {
+                                                key: i,
+                                                attrs: { value: item }
+                                              },
                                               [_vm._v(_vm._s(item))]
                                             )
                                           })
@@ -1684,10 +1690,13 @@ var render = function() {
                                               placeholder: "Année"
                                             }
                                           },
-                                          _vm._l(101, function(i) {
+                                          _vm._l(101, function(i, index) {
                                             return _c(
                                               "md-option",
-                                              { attrs: { value: 2010 - i } },
+                                              {
+                                                key: index,
+                                                attrs: { value: 2010 - i }
+                                              },
                                               [_vm._v(_vm._s(2010 - i))]
                                             )
                                           })
@@ -1769,6 +1778,7 @@ var render = function() {
                                               ? _c(
                                                   "md-list-item",
                                                   {
+                                                    key: index,
                                                     on: {
                                                       click: function($event) {
                                                         _vm.select(item)
@@ -1851,6 +1861,7 @@ var render = function() {
                                               ? _c(
                                                   "md-list-item",
                                                   {
+                                                    key: index,
                                                     on: {
                                                       click: function($event) {
                                                         _vm.selectCurrency(key)

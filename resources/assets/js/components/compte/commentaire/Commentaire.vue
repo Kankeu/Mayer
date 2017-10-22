@@ -12,7 +12,7 @@
         </md-input-container>
         <md-list class="custom-list md-triple-line">
             <div v-for="(commentaire,index) in commentaires">
-                <div class="not-visible comments md-list-item" :key="commentaire.id"  v-observable="'not-visible'">
+                <div :class="'not-visible comments md-list-item '+margin" :key="commentaire.id"  v-observable="'not-visible'">
                     <div class="md-list-item-container">
                         <div class="_md-list-item-container">
                             <md-avatar>
@@ -120,6 +120,7 @@
     export default {
         props: {
           open: Boolean,
+          margin: {type: boolean,default: "margin"},
           article: Object,
         },
         data () {
@@ -321,10 +322,12 @@
   flex-direction: column;
   align-items: center;
 }
+.margin{
+    margin-top: 10px;
+}
   .comment{
         overflow: hidden;
         height: auto;
-        margin-top: 10px;
         background-color: white;
         position: relative;
         margin-bottom: 10px;

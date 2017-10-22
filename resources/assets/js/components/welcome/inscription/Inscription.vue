@@ -26,7 +26,7 @@
                                     <md-layout md-flex="30" md-flex-small="100">
                                         <md-input-container v-validate="'required'">
                                             <md-select name="jour" placeholder="Jour" >
-                                                <md-option :value="i" v-for="i in 31">{{i}}</md-option>
+                                                <md-option :value="i" v-for="i,index in 31" :key="index">{{i}}</md-option>
                                             </md-select>
                                             <span class="md-error"></span>
                                             <md-tooltip md-direction="left">Jour de naissance</md-tooltip>
@@ -35,7 +35,7 @@
                                     <md-layout md-flex="30" md-flex-small="100">
                                         <md-input-container v-validate="'required'">
                                             <md-select name="mois" placeholder="Mois">
-                                                <md-option :value="item" v-for="item,i in mois">{{item}}</md-option>
+                                                <md-option :value="item" v-for="item,i in mois" :key="i">{{item}}</md-option>
                                             </md-select>
                                             <span class="md-error"></span>
                                             <md-tooltip md-direction="top">Mois de naissance</md-tooltip>
@@ -44,7 +44,7 @@
                                     <md-layout md-flex="30" md-flex-small="100">
                                         <md-input-container v-validate="'required'">
                                             <md-select name="annee" placeholder="Année">
-                                                <md-option :value="2010-i" v-for="i in 101">{{2010-i}}</md-option>
+                                                <md-option :value="2010-i" v-for="i,index in 101" :key="index">{{2010-i}}</md-option>
                                             </md-select>
                                             <span class="md-error"></span>
                                             <md-tooltip md-direction="right">Année de naissance</md-tooltip>
@@ -60,7 +60,7 @@
                                     </md-input-container>
                                     <md-whiteframe v-if="options && options.length>0" class="autocomplete" md-elevation="3">
                                         <md-list>
-                                            <md-list-item v-for="item,index in options" v-if="index<10"  @click="select(item)">
+                                            <md-list-item v-for="item,index in options" :key="index" v-if="index<10" @click="select(item)">
                                                 {{item}}
                                             </md-list-item>
                                         </md-list>
@@ -75,7 +75,7 @@
                                     </md-input-container>
                                     <md-whiteframe v-if="keys && keys.length>0" class="autocomplete" md-elevation="3">
                                         <md-list>
-                                            <md-list-item v-for="key,index in keys" v-if="index<10"  @click="selectCurrency(key)">
+                                            <md-list-item v-for="key,index in keys" v-if="index<10" :key="index" @click="selectCurrency(key)">
                                                 {{currencies[key].name}} <md-button @click="selectCurrency(key)">{{currencies[key].symbol}}</md-button>
                                             </md-list-item>
                                         </md-list>
