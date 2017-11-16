@@ -1,12 +1,12 @@
 webpackJsonp([1],{
 
-/***/ 104:
+/***/ 109:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(105);
+var content = __webpack_require__(110);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -27,7 +27,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 105:
+/***/ 110:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -42,7 +42,7 @@ exports.push([module.i, "\n.md-column[data-v-34b7d2fa] {\n  margin-bottom: 13px;
 
 /***/ }),
 
-/***/ 106:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63,12 +63,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: { articles: __WEBPACK_IMPORTED_MODULE_0__articles_Articles___default.a },
-    methods: {}
+    methods: {
+        close: function close() {}
+    }
 });
 
 /***/ }),
 
-/***/ 107:
+/***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -116,13 +118,13 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(104)
+  __webpack_require__(109)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(106)
+var __vue_script__ = __webpack_require__(111)
 /* template */
-var __vue_template__ = __webpack_require__(107)
+var __vue_template__ = __webpack_require__(112)
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -459,6 +461,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -631,7 +634,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n.text-ellipse[data-v-0940a3b0] {\n  text-overflow: ellipsis !important;\n  overflow: hidden !important;\n  word-wrap: initial !important;\n}\n.comments[data-v-0940a3b0] {\n  transform: translateX(0);\n  opacity: 1;\n  transition: transform .4s, opacity .4s;\n}\n.md-list[data-v-0940a3b0] {\n  max-height: 600px;\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n.not-visible[data-v-0940a3b0] {\n  transform: translateX(50px) !important;\n  opacity: 0 !important;\n}\n.comment-blockquote-previewsreponse[data-v-0940a3b0] {\n  margin-left: 25px;\n}\n.translateX-enter-active[data-v-0940a3b0] {\n  position: absolute;\n  animation: translateX-in-data-v-0940a3b0 1s;\n}\n.translateX-leave[data-v-0940a3b0] {\n  position: absolute;\n  animation: translateX-in-data-v-0940a3b0 1s reverse;\n}\n@keyframes translateX-in-data-v-0940a3b0 {\n0% {\n    transform: translateX(-50%);\n}\n100% {\n    transform: translateX(0);\n}\n}\n.attrCmt[data-v-0940a3b0] {\n  justify-content: flex-end;\n  align-items: baseline;\n  flex-wrap: wrap;\n}\n._md-list-item-container[data-v-0940a3b0] {\n  display: flex !important;\n}\n.md-list-item-container[data-v-0940a3b0] {\n  display: block !important;\n}\n.md-icon[data-v-0940a3b0] {\n  color: rgba(0, 0, 0, 0.54);\n}\n.pull-right[data-v-0940a3b0] {\n  float: right;\n}\n.check .md-icon[data-v-0940a3b0] {\n  color: #2196f3;\n}\n.translateY-enter-active[data-v-0940a3b0] {\n  animation: translateY-in-data-v-0940a3b0 1s;\n}\n.translateY-leave-active[data-v-0940a3b0] {\n  animation: translateY-in-data-v-0940a3b0 1s reverse;\n}\n@keyframes translateY-in-data-v-0940a3b0 {\n0% {\n    max-height: 0;\n    transform: max-height;\n}\n100% {\n    max-height: 550px;\n    transform: max-height;\n}\n}\n.loader[data-v-0940a3b0] {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.margin[data-v-0940a3b0] {\n  margin-top: 10px;\n}\n.comment[data-v-0940a3b0] {\n  overflow: hidden;\n  height: auto;\n  background-color: white;\n  position: relative;\n  margin-bottom: 10px;\n  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);\n  border-radius: 2px;\n}\n.comment[data-v-0940a3b0]:hover {\n    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.3);\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-property: box-shadow;\n    transition-duration: 0.4s;\n    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-delay: initial;\n    transition-property: box-shadow;\n}\n.alertCmt[data-v-0940a3b0] {\n  width: 100%;\n  height: 100%;\n  margin-bottom: 0;\n}\n.comment-repondre-block[data-v-0940a3b0] {\n  margin-left: 25px;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.md-list-text-container[data-v-0940a3b0] > :nth-child(2), .md-list-text-container[data-v-0940a3b0] > :nth-child(3) {\n  color: black;\n}\nblockquote[data-v-0940a3b0] {\n  position: relative;\n}\n.comment-blockquote[data-v-0940a3b0] {\n  margin: 0;\n  padding: 0;\n  border: none;\n  font-size: 17px;\n}\n.comment-blockquote-reponse[data-v-0940a3b0] {\n  padding-right: 0;\n  font-size: 17px;\n}\n.comment-content[data-v-0940a3b0] {\n  display: flex;\n  word-wrap: break-word;\n}\n.comment-head[data-v-0940a3b0] {\n  width: 50px;\n  background: white;\n}\n.comment-photo[data-v-0940a3b0] {\n  width: 50px;\n  height: 50px;\n  margin-right: 5px;\n  background: white;\n}\n.comment-body[data-v-0940a3b0] {\n  word-wrap: break-word;\n  max-width: 95%;\n  max-height: 500px;\n  overflow: auto;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n.comment-btn-repondre[data-v-0940a3b0] {\n  margin-right: 10px;\n  cursor: pointer;\n}\n.comment-like[data-v-0940a3b0] {\n  background: tranparent;\n}\n.comment-textarea[data-v-0940a3b0] {\n  font-size: 17px;\n}\n.md-input-container[data-v-0940a3b0] {\n  margin-bottom: 1px;\n}\n.repondreCmt[data-v-0940a3b0] {\n  color: red;\n}\n.alert[data-v-0940a3b0] {\n  border-radius: 0;\n}\n.btn_lire[data-v-0940a3b0] {\n  font-size: 16px;\n  cursor: pointer;\n}\n.card[data-v-0940a3b0] {\n  width: auto;\n}\nsmall[data-v-0940a3b0] {\n  display: inline-block;\n}\n", ""]);
+exports.push([module.i, "\n.text-ellipse[data-v-0940a3b0] {\n  text-overflow: ellipsis !important;\n  overflow: hidden !important;\n  word-wrap: initial !important;\n}\n.wBreack[data-v-0940a3b0] {\n  word-wrap: break-word !important;\n}\n.comments[data-v-0940a3b0] {\n  transform: translateX(0);\n  opacity: 1;\n  transition: transform .4s, opacity .4s;\n}\n.md-list[data-v-0940a3b0] {\n  max-height: 600px;\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n.not-visible[data-v-0940a3b0] {\n  transform: translateX(50px) !important;\n  opacity: 0 !important;\n}\n.comment-blockquote-previewsreponse[data-v-0940a3b0] {\n  margin-left: 25px;\n}\n.translateX-enter-active[data-v-0940a3b0] {\n  position: absolute;\n  animation: translateX-in-data-v-0940a3b0 1s;\n}\n.translateX-leave[data-v-0940a3b0] {\n  position: absolute;\n  animation: translateX-in-data-v-0940a3b0 1s reverse;\n}\n@keyframes translateX-in-data-v-0940a3b0 {\n0% {\n    transform: translateX(-50%);\n}\n100% {\n    transform: translateX(0);\n}\n}\n.attrCmt[data-v-0940a3b0] {\n  justify-content: flex-end;\n  align-items: baseline;\n  flex-wrap: wrap;\n}\n._md-list-item-container[data-v-0940a3b0] {\n  display: flex !important;\n}\n.md-list-item-container[data-v-0940a3b0] {\n  display: block !important;\n}\n.md-icon[data-v-0940a3b0] {\n  color: rgba(0, 0, 0, 0.54);\n}\n.pull-right[data-v-0940a3b0] {\n  float: right;\n}\n.check .md-icon[data-v-0940a3b0] {\n  color: #2196f3;\n}\n.translateY-enter-active[data-v-0940a3b0] {\n  animation: translateY-in-data-v-0940a3b0 1s;\n}\n.translateY-leave-active[data-v-0940a3b0] {\n  animation: translateY-in-data-v-0940a3b0 1s reverse;\n}\n@keyframes translateY-in-data-v-0940a3b0 {\n0% {\n    max-height: 0;\n    transform: max-height;\n}\n100% {\n    max-height: 550px;\n    transform: max-height;\n}\n}\n.loader[data-v-0940a3b0] {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.margin[data-v-0940a3b0] {\n  margin-top: 10px;\n}\n.comment[data-v-0940a3b0] {\n  overflow: hidden;\n  height: auto;\n  background-color: white;\n  position: relative;\n  margin-bottom: 10px;\n  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);\n  border-radius: 2px;\n}\n.comment[data-v-0940a3b0]:hover {\n    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.3);\n    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-property: box-shadow;\n    transition-duration: 0.4s;\n    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);\n    transition-delay: initial;\n    transition-property: box-shadow;\n}\n.alertCmt[data-v-0940a3b0] {\n  width: 100%;\n  height: 100%;\n  margin-bottom: 0;\n}\n.comment-repondre-block[data-v-0940a3b0] {\n  margin-left: 25px;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.md-list-text-container[data-v-0940a3b0] > :nth-child(2), .md-list-text-container[data-v-0940a3b0] > :nth-child(3) {\n  color: black;\n}\nblockquote[data-v-0940a3b0] {\n  position: relative;\n}\n.comment-blockquote[data-v-0940a3b0] {\n  margin: 0;\n  padding: 0;\n  border: none;\n  font-size: 17px;\n}\n.comment-blockquote-reponse[data-v-0940a3b0] {\n  padding-right: 0;\n  font-size: 17px;\n}\n.comment-content[data-v-0940a3b0] {\n  display: flex;\n  word-wrap: break-word;\n}\n.comment-head[data-v-0940a3b0] {\n  width: 50px;\n  background: white;\n}\n.comment-photo[data-v-0940a3b0] {\n  width: 50px;\n  height: 50px;\n  margin-right: 5px;\n  background: white;\n}\n.comment-body[data-v-0940a3b0] {\n  word-wrap: break-word;\n  max-width: 95%;\n  max-height: 500px;\n  overflow: auto;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n.comment-btn-repondre[data-v-0940a3b0] {\n  margin-right: 10px;\n  cursor: pointer;\n}\n.comment-like[data-v-0940a3b0] {\n  background: tranparent;\n}\n.comment-textarea[data-v-0940a3b0] {\n  font-size: 17px;\n}\n.md-input-container[data-v-0940a3b0] {\n  margin-bottom: 1px;\n}\n.repondreCmt[data-v-0940a3b0] {\n  color: red;\n}\n.alert[data-v-0940a3b0] {\n  border-radius: 0;\n}\n.btn_lire[data-v-0940a3b0] {\n  font-size: 16px;\n  cursor: pointer;\n}\n.card[data-v-0940a3b0] {\n  width: auto;\n}\nsmall[data-v-0940a3b0] {\n  display: inline-block;\n}\n.md-list-text-container p[data-v-0940a3b0] {\n  text-overflow: initial !important;\n  word-wrap: break-word !important;\n  white-space: initial !important;\n}\n", ""]);
 
 // exports
 
@@ -762,143 +765,146 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    open: Boolean,
-    margin: { type: boolean, default: "margin" },
-    article: Object
-  },
-  data: function data() {
-    return {
-      message: null,
-      commentaires: [],
-      repondre_id: null,
-      loading: true,
-      nextUrl: null,
-      empty: false
-    };
-  },
-
-  methods: {
-    loadComments: function loadComments() {
-      var _this = this;
-
-      this.loading = true;
-      this.$commentaire.get().then(function (response) {
-        if (response.body.data && response.body.data.length > 0) {
-          _this.commentaires = _.cloneDeep(response.body.data);
-          if (response.body.next_page_url) _this.nextUrl = response.body.next_page_url;
-        }
-        _this.loading = false;
-        _this.$el.querySelector('textarea').focus();
-      });
+    props: {
+        open: Boolean,
+        margin: { type: Boolean, default: "margin" },
+        article: Object
     },
-    loadResponses: function loadResponses(commentaire) {
-      var _this2 = this;
-
-      this.loading = true;
-      this.repondre_id = commentaire.id;
-      commentaire.reply = true;
-      this.$el.querySelector('textarea').focus();
-      this.commentaires = [commentaire];
-      this.$http.get('/comments/' + this.article.id + '/' + commentaire.id).then(function (response) {
-        if (response.body && response.body.length > 0) {
-          commentaire.reponses = [].concat(_toConsumableArray(_.cloneDeep(response.body)));
-          _this2.commentaires = [commentaire];
-        }
-        _this2.loading = false;
-      });
+    data: function data() {
+        return {
+            message: null,
+            commentaires: [],
+            repondre_id: null,
+            loading: true,
+            nextUrl: null,
+            empty: false
+        };
     },
-    loadMore: function loadMore() {
-      var _this3 = this;
 
-      this.loading = true;
-      var url = this.nextUrl ? this.nextUrl.replace("http://localhost:8000", "") : null;
-      if (url) {
-        this.$http.get(url).then(function (response) {
-          if (response.body.data && response.body.data.length > 0) {
-            var _commentaires;
+    methods: {
+        loadComments: function loadComments() {
+            var _this = this;
 
-            (_commentaires = _this3.commentaires).push.apply(_commentaires, _toConsumableArray(_.cloneDeep(response.body.data)));
-            _this3.nextUrl = response.body.next_page_url;
-          }
-          _this3.loading = false;
-        });
-      }
-    },
-    saveComments: function saveComments() {
-      var _this4 = this;
-
-      this.$commentaire.save({ 'commentaire': this.message, 'article_id': this.article.id, 'parent_id': this.repondre_id }).then(function (response) {
-        if (response.body && response.body.length > 0) {
-          var data = _.cloneDeep(response.body);
-          data[0].user = user;
-          if (data[0].parent_id === null) {
-            _this4.commentaires.push(data[0]);
-            _this4.article.commentaires_count++;
-          } else {
-            var parent = _this4.commentaires.filter(function (comment) {
-              return comment.id === data[0].parent_id ? comment : null;
+            this.loading = true;
+            this.$commentaire.get().then(function (response) {
+                if (response.body.data && response.body.data.length > 0) {
+                    _this.commentaires = _.cloneDeep(response.body.data);
+                    if (response.body.next_page_url) _this.nextUrl = response.body.next_page_url;
+                }
+                _this.loading = false;
+                _this.$el.querySelector('textarea').focus();
             });
-            parent[0].reponses.push(data[0]);
-            parent[0].reponses_count++;
-          }
-          _this4.$nextTick(function () {
-            _this4.$el.querySelector('.md-list').scrollTop = _this4.$el.querySelector('.md-list').scrollHeight + 1000;
-          });
-        }
-      });
-      this.message = null;
-    },
-    retour: function retour() {
-      this.repondre_id = null;
-      this.loadComments();
-      this.$el.querySelector('textarea').focus();
-    },
-    supprimer: function supprimer(commentaire, index, index_rep, event) {
-      var _this5 = this;
+        },
+        loadResponses: function loadResponses(commentaire) {
+            var _this2 = this;
 
-      this.parentNode(event.target, 'md-list-item').classList.add('not-visible');
-      var clear = setTimeout(function () {
-        _this5.$commentaire.delete({ id: commentaire.id });
-        if (!commentaire.parent_id) {
-          _this5.commentaires.splice(index, 1);
-          _this5.article.commentaires_count--;
-          if (_this5.repondre_id) _this5.retour();
-        } else {
-          _this5.commentaires[index].reponses.splice(index_rep, 1);
-          _this5.commentaires[index].reponses_count--;
-        }
-      }, 400);
-    },
-    like: function like(commentaire) {
-      this.$http.get("/like/commentaire/" + commentaire.id);
-      if (commentaire.liked === 1) {
-        commentaire.liked = 0;commentaire.likes_count--;return true;
-      }
-      if (commentaire.liked === 0) {
-        commentaire.liked = 1;commentaire.likes_count++;return true;
-      }
-    }
-  },
-  mounted: function mounted() {
-    this.$commentaire = this.$resource('/comments/' + this.article.id + '{/id}');
-  },
+            this.loading = true;
+            this.repondre_id = commentaire.id;
+            commentaire.reply = true;
+            this.$el.querySelector('textarea').focus();
+            this.commentaires = [commentaire];
+            this.$http.get('/comments/' + this.article.id + '/' + commentaire.id).then(function (response) {
+                if (response.body && response.body.length > 0) {
+                    commentaire.reponses = [].concat(_toConsumableArray(_.cloneDeep(response.body)));
+                    _this2.commentaires = [commentaire];
+                }
+                _this2.loading = false;
+            });
+        },
+        loadMore: function loadMore() {
+            var _this3 = this;
 
-  watch: {
-    open: function open(data) {
-      if (data === true) {
-        this.loadComments();
-      } else {
-        this.repondre_id = null;
-      }
+            this.loading = true;
+            var url = this.nextUrl ? this.nextUrl.replace("http://localhost:8000", "") : null;
+            if (url) {
+                this.$http.get(url).then(function (response) {
+                    if (response.body.data && response.body.data.length > 0) {
+                        var _commentaires;
+
+                        (_commentaires = _this3.commentaires).push.apply(_commentaires, _toConsumableArray(_.cloneDeep(response.body.data)));
+                        _this3.nextUrl = response.body.next_page_url;
+                    }
+                    _this3.loading = false;
+                });
+            }
+        },
+        saveComments: function saveComments() {
+            var _this4 = this;
+
+            this.$commentaire.save({ 'commentaire': this.message, 'article_id': this.article.id, 'parent_id': this.repondre_id }).then(function (response) {
+                if (response.body && response.body.length > 0) {
+                    var data = _.cloneDeep(response.body);
+                    data[0].user = user;
+                    if (data[0].parent_id === null) {
+                        _this4.commentaires.push(data[0]);
+                        _this4.article.commentaires_count++;
+                    } else {
+                        var parent = _this4.commentaires.filter(function (comment) {
+                            return comment.id === data[0].parent_id ? comment : null;
+                        });
+                        parent[0].reponses.push(data[0]);
+                        parent[0].reponses_count++;
+                    }
+                    _this4.$nextTick(function () {
+                        _this4.$el.querySelector('.md-list').scrollTop = _this4.$el.querySelector('.md-list').scrollHeight + 1000;
+                    });
+                }
+            });
+            this.message = null;
+        },
+        retour: function retour() {
+            this.repondre_id = null;
+            this.loadComments();
+            this.$el.querySelector('textarea').focus();
+        },
+        supprimer: function supprimer(commentaire, index, index_rep, event) {
+            var _this5 = this;
+
+            this.parentNode(event.target, 'md-list-item').classList.add('not-visible');
+            var clear = setTimeout(function () {
+                _this5.$commentaire.delete({ id: commentaire.id });
+                if (!commentaire.parent_id) {
+                    _this5.commentaires.splice(index, 1);
+                    _this5.article.commentaires_count--;
+                    if (_this5.repondre_id) _this5.retour();
+                } else {
+                    _this5.commentaires[index].reponses.splice(index_rep, 1);
+                    _this5.commentaires[index].reponses_count--;
+                }
+            }, 400);
+        },
+        like: function like(commentaire) {
+            this.$http.get("/like/commentaire/" + commentaire.id);
+            if (commentaire.liked === 1) {
+                commentaire.liked = 0;commentaire.likes_count--;return true;
+            }
+            if (commentaire.liked === 0) {
+                commentaire.liked = 1;commentaire.likes_count++;return true;
+            }
+        }
     },
-    commentaire: function commentaire(data) {
-      if (data.length === 0) this.empty = true;
+    mounted: function mounted() {
+        console.log(this.article);
+        this.$commentaire = this.$resource('/comments/' + this.article.id + '{/id}');
+    },
+
+    watch: {
+        open: function open(data) {
+            console.log("dfsdf", data);
+            if (data === true) {
+                this.loadComments();
+            } else {
+                this.repondre_id = null;
+            }
+        },
+        commentaire: function commentaire(data) {
+            if (data.length === 0) this.empty = true;
+        }
     }
-  }
 });
 
 /***/ }),
@@ -917,7 +923,7 @@ var render = function() {
           { key: _vm.open, staticClass: "comment" },
           [
             _vm.empty
-              ? _c("div", { staticClass: "alert alert-info alertCmt" }, [
+              ? _c("div", [
                   _c("ul", [
                     _c("li", [
                       _vm._v(":)  Soyez le premier à commenter cette article.")
@@ -997,18 +1003,20 @@ var render = function() {
                                   { staticClass: "md-list-text-container" },
                                   [
                                     _c("span", [
-                                      _vm._v(
-                                        _vm._s(
-                                          _vm._f("uppercase")(
-                                            commentaire.user.name
-                                          )
-                                        ) +
-                                          " " +
-                                          _vm._s(commentaire.user.forename)
-                                      )
+                                      _c("b", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm._f("uppercase")(
+                                              commentaire.user.name
+                                            )
+                                          ) +
+                                            " " +
+                                            _vm._s(commentaire.user.forename)
+                                        )
+                                      ])
                                     ]),
                                     _vm._v(" "),
-                                    _c("p", [
+                                    _c("p", {}, [
                                       _vm._v(_vm._s(commentaire.commentaire))
                                     ])
                                   ]
@@ -1198,19 +1206,21 @@ var render = function() {
                                       { staticClass: "md-list-text-container" },
                                       [
                                         _c("span", [
-                                          _vm._v(
-                                            _vm._s(
-                                              _vm._f("uppercase")(
-                                                commentaire.previewsreponse.user
-                                                  .name
-                                              )
-                                            ) +
-                                              " " +
+                                          _c("b", [
+                                            _vm._v(
                                               _vm._s(
-                                                commentaire.previewsreponse.user
-                                                  .forename
-                                              )
-                                          )
+                                                _vm._f("uppercase")(
+                                                  commentaire.previewsreponse
+                                                    .user.name
+                                                )
+                                              ) +
+                                                " " +
+                                                _vm._s(
+                                                  commentaire.previewsreponse
+                                                    .user.forename
+                                                )
+                                            )
+                                          ])
                                         ]),
                                         _vm._v(" "),
                                         _c("p", [
@@ -1381,15 +1391,17 @@ var render = function() {
                                         },
                                         [
                                           _c("span", [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm._f("uppercase")(
-                                                  reponse.user.name
-                                                )
-                                              ) +
-                                                " " +
-                                                _vm._s(reponse.user.forename)
-                                            )
+                                            _c("b", [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm._f("uppercase")(
+                                                    reponse.user.name
+                                                  )
+                                                ) +
+                                                  " " +
+                                                  _vm._s(reponse.user.forename)
+                                              )
+                                            ])
                                           ]),
                                           _vm._v(" "),
                                           _c("p", [
@@ -1644,7 +1656,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n.backdrop[data-v-3c2ece35] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin-top: -70px;\n  background-color: rgba(0, 0, 0, 0.4);\n  z-index: 100000;\n  display: flex;\n  flex-direction: column;\n  padding: 10px;\n}\n.alt[data-v-3c2ece35] {\n  display: flex;\n  width: 100%;\n  flex-direction: row;\n  justify-content: space-between;\n}\n.alt .img_atl[data-v-3c2ece35] {\n  flex: .6;\n}\n.alt .img_atl img[data-v-3c2ece35] {\n    position: fixed;\n}\n.alt .block_cmt[data-v-3c2ece35] {\n  flex: .4;\n}\n.alt .block_cmt div[data-v-3c2ece35] {\n    position: fixed;\n}\n.atl_sup[data-v-3c2ece35] {\n  position: fixed;\n  display: flex;\n  flex-direction: row;\n  margin-top: 10px;\n  justify-content: space-between;\n  width: 98%;\n  bottom: 10px;\n}\n.atl_sup div[data-v-3c2ece35] {\n    width: 130px;\n}\n.img_atl[data-v-3c2ece35] {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n.block[data-v-3c2ece35] {\n  padding: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.backdrop[data-v-3c2ece35] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n  z-index: 100000;\n  display: flex;\n  flex-direction: column;\n  padding: 10px;\n}\n.close[data-v-3c2ece35] {\n  position: fixed;\n  top: 10px;\n  right: 10px;\n  font-size: 30px;\n  opacity: .8;\n  color: #fff;\n}\n.close[data-v-3c2ece35]:hover {\n    opacity: 1;\n    font-size: 35px;\n    transition: .3s;\n}\n.alt .img_atl img[data-v-3c2ece35] {\n  position: fixed;\n}\n.alt .block_cmt div[data-v-3c2ece35] {\n  position: fixed;\n}\n.atl_sup[data-v-3c2ece35] {\n  display: flex;\n  flex-direction: row;\n  margin-top: 10px;\n  justify-content: space-between;\n  width: 100%;\n}\n.atl_sup div[data-v-3c2ece35] {\n    width: 130px;\n}\n.comments[data-v-3c2ece35] {\n  width: 100%;\n  height: 100%;\n}\n.img_atl[data-v-3c2ece35] {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n.block[data-v-3c2ece35] {\n  padding: 10px;\n}\n.glob[data-v-3c2ece35] {\n  height: 80%;\n}\n", ""]);
 
 // exports
 
@@ -1671,6 +1683,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -1681,12 +1697,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         article: Object
     },
     data: function data() {
-        return {};
+        return {
+            state: { scroll: null }
+        };
     },
 
     methods: {
         loadComments: function loadComments() {
             console.log(this.article);
+        },
+        close: function close() {
+            this.article.commentOpen = false;
         }
     },
     mounted: function mounted() {
@@ -1696,7 +1717,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     watch: {
         open: function open(data) {
             if (data === true) {
+                document.querySelector('body').style.overflow = "hidden";
+                this.state.scroll = document.querySelector('body').scrollTop;
                 this.loadComments();
+            } else {
+                document.querySelector('body').style.overflowY = "auto";
+                document.querySelector('body').scrollTop = this.state.scroll;
             }
         }
     }
@@ -1711,38 +1737,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.open
-    ? _c("div", [
-        _c("div", { staticClass: "backdrop" }, [
-          _c("div", { staticClass: "alt" }, [
-            _c("div", { staticClass: "img_atl" }, [
-              _c("img", { attrs: { src: _vm.article.images[0].path } })
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "block_cmt" },
-              [
-                _c("commentaire", {
-                  attrs: { article: _vm.article, margin: false, open: _vm.open }
-                })
-              ],
-              1
-            )
+  return _c(
+    "div",
+    {
+      directives: [
+        { name: "show", rawName: "v-show", value: _vm.open, expression: "open" }
+      ],
+      on: { dblclick: _vm.close }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "backdrop" },
+        [
+          _c("span", { staticClass: "close", on: { click: _vm.close } }, [
+            _vm._v("X")
           ]),
           _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "atl_sup" },
-            _vm._l(10, function(n) {
-              return _c("div", [
-                _c("img", { attrs: { src: _vm.article.images[0].path } })
+            "md-layout",
+            { attrs: { "md-column": "", "md-gutter": "" } },
+            [
+              _c(
+                "md-layout",
+                {
+                  staticClass: "glob",
+                  attrs: { "md-flex": "80", "md-gutter": "" }
+                },
+                [
+                  _c("md-layout", { attrs: { "md-flex": "45" } }, [
+                    _c("img", { attrs: { src: _vm.article.images[0].path } })
+                  ]),
+                  _vm._v(" "),
+                  _c("md-layout", { attrs: { "md-flex": "5" } }),
+                  _vm._v(" "),
+                  _c(
+                    "md-layout",
+                    { attrs: { "md-flex": "50" } },
+                    [
+                      _c("commentaire", {
+                        staticClass: "comments",
+                        attrs: {
+                          article: _vm.article,
+                          margin: false,
+                          open: _vm.article.commentOpen
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("md-layout", [
+                _c(
+                  "div",
+                  { staticClass: "atl_sup" },
+                  _vm._l(10, function(n) {
+                    return _c("div", [
+                      _c("img", { attrs: { src: _vm.article.images[0].path } })
+                    ])
+                  })
+                )
               ])
-            })
+            ],
+            1
           )
-        ])
-      ])
-    : _vm._e()
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2197,10 +2263,6 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("commentaire", {
-                attrs: { article: article, open: article.commentOpen }
-              }),
-              _vm._v(" "),
               _c("fullScreen", {
                 attrs: { article: article, open: article.commentOpen }
               })
@@ -2218,15 +2280,25 @@ var render = function() {
       _vm._v(" "),
       _c(
         "md-snackbar",
-        {
-          ref: "snackbar",
-          attrs: { "md-position": "bottom center", "md-duration": 5000 }
-        },
+        { ref: "snackbar", attrs: { "md-duration": 5000 } },
         [
-          _c("span", { staticClass: "red" }, [
-            _vm._v("Erreur lors du chargement des articles")
-          ])
-        ]
+          _c("span", [_vm._v("Erreur lors du chargement des articles.")]),
+          _vm._v(" "),
+          _c(
+            "md-button",
+            {
+              staticClass: "md-accent",
+              attrs: { "md-theme": "light-blue" },
+              on: {
+                click: function($event) {
+                  _vm.$refs.snackbar.close()
+                }
+              }
+            },
+            [_vm._v("Retry")]
+          )
+        ],
+        1
       ),
       _vm._v(" "),
       _c("md-dialog-confirm", {

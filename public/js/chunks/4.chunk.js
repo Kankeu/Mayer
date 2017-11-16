@@ -1,22 +1,22 @@
 webpackJsonp([4],{
 
-/***/ 112:
+/***/ 100:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(113);
+var content = __webpack_require__(101);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6e5bd948", content, false);
+var update = __webpack_require__(2)("50b63b1e", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d3e734ec\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Inscription.vue", function() {
-     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d3e734ec\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Inscription.vue");
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-19fea62e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Commandes.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-19fea62e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Commandes.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -27,7 +27,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 113:
+/***/ 101:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -35,14 +35,290 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\nform{\n    padding:15px;\n}\n.grille{\n    justify-content: space-around;\n}\n.date{\n    justify-content: space-between;\n}\n.step-btn button{\n    margin-left: 0;\n}\n.date .md-input-container{\n    width: 50vh;\n}\nform .btn-submit{\n    display: none;\n}\n.md-step-actions{\n    display: none;\n}\n.autocomplete{\n    position: absolute;\n    width: 80%;\n}\n.position-box {\n    overflow: hidden;\n}\na{\n    cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 114:
+/***/ 102:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ModalChat__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ModalChat___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ModalChat__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { ModalChat: __WEBPACK_IMPORTED_MODULE_0__ModalChat___default.a },
+    data: function data() {
+        return {
+            commandes: [],
+            errors: false,
+            empty: false,
+            loader: false,
+            user: window.user,
+            commande: null,
+            event: null,
+            switcher: false
+        };
+    },
+
+    methods: {
+        onPagination: function onPagination(tr) {
+            console.log(tr);
+        },
+        openModal: function openModal(item) {
+            this.commande = item;
+            this.switcher = !this.switcher;
+        },
+        loadCommandes: function loadCommandes() {
+            var _this = this;
+
+            this.loader = true;
+            this.$commande.get().then(function (response) {
+                response.json().then(function (data) {
+                    _this.page = data.next_page_url;
+                    _this.commandes = data.data;
+                    console.log(_this.commandes);
+                    if (_this.commandes.length === 0) {
+                        _this.empty = true;
+                    }
+                    _this.loader = false;
+                });
+            });
+        },
+        confirm: function confirm(item, event) {
+            var el = this.parentNode(event.target, "md-column");
+            var data = { reponse: true, article_id: item.article.id
+                //el.style.transition = "transform 1s, opacity 1s"
+                //el.style.transform = "translate3d("+(window.innerWidth-el.getBoundingClientRect().left-el.getBoundingClientRect().width*0.2)+"px,"+(-el.getBoundingClientRect().top)+"px,0) scale(.2)"
+                //el.style.opacity = 0
+            };this.$commande.update({ id: item.id }, data).then(function (response) {
+                item.reponse = 1;
+            });
+            //setTimeout(()=>{this.commandes.splice(this.commandes.indexOf(item),1)},900)
+        },
+        remove: function remove(item, event) {
+            var _this2 = this;
+
+            //this.$commande.delete({id:item.id})
+            var el = this.parentNode(event.target, "md-column");
+            el.style.transition = "transform 1s, opacity 1s";
+            el.style.transform = "translate3d(" + -(window.innerWidth - el.getBoundingClientRect().left - el.getBoundingClientRect().width * 0.2) + "px," + -el.getBoundingClientRect().top + "px,0) scale(.2) rotate3d(0,0,1,360deg)";
+            el.style.opacity = 0;
+            setTimeout(function () {
+                _this2.commandes.splice(_this2.commandes.indexOf(item), 1);
+            }, 900);
+        },
+        rotate: function rotate(item) {
+            if (!item.textAttached) {
+                item.name = "rotate-in";
+                Vue.set(item, 'textAttached', true);
+            } else {
+                item.name = "rotate-out";
+                item.textAttached = false;
+            }
+        },
+        openDialog: function openDialog(ref, item, event) {
+            this.commande = item;
+            this.event = event;
+            this.$refs[ref].open();
+        },
+        closeDialog: function closeDialog(ref) {
+            this.$refs[ref].close();
+        },
+        onClose: function onClose(type) {
+            if (type === 'ok') {
+                this.remove(this.commande, this.event);
+            }
+        }
+    },
+    mounted: function mounted() {
+        var _this3 = this;
+
+        Echo.channel('channel-commande' + user.id).listen('CommandeEvent', function (e) {
+            _this3.commandes.unshift(e.commande.commande);
+        });
+        this.$commande = this.$resource('/commandes{/id}');
+        this.loadCommandes();
+    }
+});
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(104)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(106)
+/* template */
+var __vue_template__ = __webpack_require__(107)
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-74932e9a"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/compte/commandes/ModalChat.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ModalChat.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-74932e9a", Component.options)
+  } else {
+    hotAPI.reload("data-v-74932e9a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 104:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(105);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("39edae7c", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-74932e9a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ModalChat.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-74932e9a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ModalChat.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 105:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.block[data-v-74932e9a]{\n    display: block;\n}\n.absolute[data-v-74932e9a]{\n    position: absolute;\n}\n.marginL[data-v-74932e9a]{\n    margin-left: 16px;\n}\n.md-card .md-card-media-cover[data-v-74932e9a]{\n    position: initial;\n}\n.prev-v-img svg[data-v-74932e9a],\n.next-v-img svg[data-v-74932e9a] {\n    margin: 5px auto;\n}\n.prev-v-img[data-v-74932e9a],\n.next-v-img[data-v-74932e9a] {\n    color: white;\n    width: 35px;\n    height: 35px;\n    position: absolute;\n    top: 50%;\n    margin-top: -100px;\n    font-size: 15px;\n    font-family: 'Avenir', Helvetica, Arial, sans-serif;\n    text-align: center;\n    background-color: rgba(0, 0, 0, .3);\n    z-index: 10006;\n    opacity: .3;\n    -webkit-transition: opacity .3s ease-in-out;\n    transition: opacity .3s ease-in-out;\n    cursor: pointer;\n}\n.prev-v-img[data-v-74932e9a]:hover,\n.next-v-img[data-v-74932e9a]:hover {\n    opacity: 1;\n}\n.prev-v-img[data-v-74932e9a] {\n    left: 10px;\n}\n.next-v-img[data-v-74932e9a] {\n    right: 10px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -115,1292 +391,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        commande: Object,
+        switcher: Boolean
+    },
     data: function data() {
         return {
-            mois: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
-            countries: ["Afghanistan", "Åland Islands", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia, Plurinational State of", "Bonaire, Sint Eustatius and Saba", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Curaçao", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard Island and McDonald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran, Islamic Republic of", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao", "Macedonia, the Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Palestine, State of", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Réunion", "Romania", "Russian Federation", "Rwanda", "Saint Barthélemy", "Saint Helena, Ascension and Tristan da Cunha", "Saint Kitts and Nevis", "Saint Lucia", "Saint Martin (French part)", "Saint Pierre and Miquelon", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Sint Maarten (Dutch part)", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Svalbard and Jan Mayen", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Timor-Leste", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela, Bolivarian Republic of", "Viet Nam", "Virgin Islands, British", "Virgin Islands, U.S.", "Wallis and Futuna", "Western Sahara", "Yemen", "Zambia", "Zimbabwe"],
-            options: null,
-            keys: null,
-            confirmation: null,
-            currencies: {
-                "USD": {
-                    "symbol": "$",
-                    "name": "US Dollar",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "USD",
-                    "name_plural": "US dollars"
-                },
-                "CAD": {
-                    "symbol": "CA$",
-                    "name": "Canadian Dollar",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "CAD",
-                    "name_plural": "Canadian dollars"
-                },
-                "EUR": {
-                    "symbol": "€",
-                    "name": "Euro",
-                    "symbol_native": "€",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "EUR",
-                    "name_plural": "euros"
-                },
-                "AED": {
-                    "symbol": "AED",
-                    "name": "United Arab Emirates Dirham",
-                    "symbol_native": "د.إ.‏",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "AED",
-                    "name_plural": "UAE dirhams"
-                },
-                "AFN": {
-                    "symbol": "Af",
-                    "name": "Afghan Afghani",
-                    "symbol_native": "؋",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "AFN",
-                    "name_plural": "Afghan Afghanis"
-                },
-                "ALL": {
-                    "symbol": "ALL",
-                    "name": "Albanian Lek",
-                    "symbol_native": "Lek",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "ALL",
-                    "name_plural": "Albanian lekë"
-                },
-                "AMD": {
-                    "symbol": "AMD",
-                    "name": "Armenian Dram",
-                    "symbol_native": "դր.",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "AMD",
-                    "name_plural": "Armenian drams"
-                },
-                "ARS": {
-                    "symbol": "AR$",
-                    "name": "Argentine Peso",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "ARS",
-                    "name_plural": "Argentine pesos"
-                },
-                "AUD": {
-                    "symbol": "AU$",
-                    "name": "Australian Dollar",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "AUD",
-                    "name_plural": "Australian dollars"
-                },
-                "AZN": {
-                    "symbol": "man.",
-                    "name": "Azerbaijani Manat",
-                    "symbol_native": "ман.",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "AZN",
-                    "name_plural": "Azerbaijani manats"
-                },
-                "BAM": {
-                    "symbol": "KM",
-                    "name": "Bosnia-Herzegovina Convertible Mark",
-                    "symbol_native": "KM",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "BAM",
-                    "name_plural": "Bosnia-Herzegovina convertible marks"
-                },
-                "BDT": {
-                    "symbol": "Tk",
-                    "name": "Bangladeshi Taka",
-                    "symbol_native": "৳",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "BDT",
-                    "name_plural": "Bangladeshi takas"
-                },
-                "BGN": {
-                    "symbol": "BGN",
-                    "name": "Bulgarian Lev",
-                    "symbol_native": "лв.",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "BGN",
-                    "name_plural": "Bulgarian leva"
-                },
-                "BHD": {
-                    "symbol": "BD",
-                    "name": "Bahraini Dinar",
-                    "symbol_native": "د.ب.‏",
-                    "decimal_digits": 3,
-                    "rounding": 0,
-                    "code": "BHD",
-                    "name_plural": "Bahraini dinars"
-                },
-                "BIF": {
-                    "symbol": "FBu",
-                    "name": "Burundian Franc",
-                    "symbol_native": "FBu",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "BIF",
-                    "name_plural": "Burundian francs"
-                },
-                "BND": {
-                    "symbol": "BN$",
-                    "name": "Brunei Dollar",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "BND",
-                    "name_plural": "Brunei dollars"
-                },
-                "BOB": {
-                    "symbol": "Bs",
-                    "name": "Bolivian Boliviano",
-                    "symbol_native": "Bs",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "BOB",
-                    "name_plural": "Bolivian bolivianos"
-                },
-                "BRL": {
-                    "symbol": "R$",
-                    "name": "Brazilian Real",
-                    "symbol_native": "R$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "BRL",
-                    "name_plural": "Brazilian reals"
-                },
-                "BWP": {
-                    "symbol": "BWP",
-                    "name": "Botswanan Pula",
-                    "symbol_native": "P",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "BWP",
-                    "name_plural": "Botswanan pulas"
-                },
-                "BYR": {
-                    "symbol": "BYR",
-                    "name": "Belarusian Ruble",
-                    "symbol_native": "BYR",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "BYR",
-                    "name_plural": "Belarusian rubles"
-                },
-                "BZD": {
-                    "symbol": "BZ$",
-                    "name": "Belize Dollar",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "BZD",
-                    "name_plural": "Belize dollars"
-                },
-                "CDF": {
-                    "symbol": "CDF",
-                    "name": "Congolese Franc",
-                    "symbol_native": "FrCD",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "CDF",
-                    "name_plural": "Congolese francs"
-                },
-                "CHF": {
-                    "symbol": "CHF",
-                    "name": "Swiss Franc",
-                    "symbol_native": "CHF",
-                    "decimal_digits": 2,
-                    "rounding": 0.05,
-                    "code": "CHF",
-                    "name_plural": "Swiss francs"
-                },
-                "CLP": {
-                    "symbol": "CL$",
-                    "name": "Chilean Peso",
-                    "symbol_native": "$",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "CLP",
-                    "name_plural": "Chilean pesos"
-                },
-                "CNY": {
-                    "symbol": "CN¥",
-                    "name": "Chinese Yuan",
-                    "symbol_native": "CN¥",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "CNY",
-                    "name_plural": "Chinese yuan"
-                },
-                "COP": {
-                    "symbol": "CO$",
-                    "name": "Colombian Peso",
-                    "symbol_native": "$",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "COP",
-                    "name_plural": "Colombian pesos"
-                },
-                "CRC": {
-                    "symbol": "₡",
-                    "name": "Costa Rican Colón",
-                    "symbol_native": "₡",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "CRC",
-                    "name_plural": "Costa Rican colóns"
-                },
-                "CVE": {
-                    "symbol": "CV$",
-                    "name": "Cape Verdean Escudo",
-                    "symbol_native": "CV$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "CVE",
-                    "name_plural": "Cape Verdean escudos"
-                },
-                "CZK": {
-                    "symbol": "Kč",
-                    "name": "Czech Republic Koruna",
-                    "symbol_native": "Kč",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "CZK",
-                    "name_plural": "Czech Republic korunas"
-                },
-                "DJF": {
-                    "symbol": "Fdj",
-                    "name": "Djiboutian Franc",
-                    "symbol_native": "Fdj",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "DJF",
-                    "name_plural": "Djiboutian francs"
-                },
-                "DKK": {
-                    "symbol": "Dkr",
-                    "name": "Danish Krone",
-                    "symbol_native": "kr",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "DKK",
-                    "name_plural": "Danish kroner"
-                },
-                "DOP": {
-                    "symbol": "RD$",
-                    "name": "Dominican Peso",
-                    "symbol_native": "RD$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "DOP",
-                    "name_plural": "Dominican pesos"
-                },
-                "DZD": {
-                    "symbol": "DA",
-                    "name": "Algerian Dinar",
-                    "symbol_native": "د.ج.‏",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "DZD",
-                    "name_plural": "Algerian dinars"
-                },
-                "EEK": {
-                    "symbol": "Ekr",
-                    "name": "Estonian Kroon",
-                    "symbol_native": "kr",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "EEK",
-                    "name_plural": "Estonian kroons"
-                },
-                "EGP": {
-                    "symbol": "EGP",
-                    "name": "Egyptian Pound",
-                    "symbol_native": "ج.م.‏",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "EGP",
-                    "name_plural": "Egyptian pounds"
-                },
-                "ERN": {
-                    "symbol": "Nfk",
-                    "name": "Eritrean Nakfa",
-                    "symbol_native": "Nfk",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "ERN",
-                    "name_plural": "Eritrean nakfas"
-                },
-                "ETB": {
-                    "symbol": "Br",
-                    "name": "Ethiopian Birr",
-                    "symbol_native": "Br",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "ETB",
-                    "name_plural": "Ethiopian birrs"
-                },
-                "GBP": {
-                    "symbol": "£",
-                    "name": "British Pound Sterling",
-                    "symbol_native": "£",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "GBP",
-                    "name_plural": "British pounds sterling"
-                },
-                "GEL": {
-                    "symbol": "GEL",
-                    "name": "Georgian Lari",
-                    "symbol_native": "GEL",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "GEL",
-                    "name_plural": "Georgian laris"
-                },
-                "GHS": {
-                    "symbol": "GH₵",
-                    "name": "Ghanaian Cedi",
-                    "symbol_native": "GH₵",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "GHS",
-                    "name_plural": "Ghanaian cedis"
-                },
-                "GNF": {
-                    "symbol": "FG",
-                    "name": "Guinean Franc",
-                    "symbol_native": "FG",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "GNF",
-                    "name_plural": "Guinean francs"
-                },
-                "GTQ": {
-                    "symbol": "GTQ",
-                    "name": "Guatemalan Quetzal",
-                    "symbol_native": "Q",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "GTQ",
-                    "name_plural": "Guatemalan quetzals"
-                },
-                "HKD": {
-                    "symbol": "HK$",
-                    "name": "Hong Kong Dollar",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "HKD",
-                    "name_plural": "Hong Kong dollars"
-                },
-                "HNL": {
-                    "symbol": "HNL",
-                    "name": "Honduran Lempira",
-                    "symbol_native": "L",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "HNL",
-                    "name_plural": "Honduran lempiras"
-                },
-                "HRK": {
-                    "symbol": "kn",
-                    "name": "Croatian Kuna",
-                    "symbol_native": "kn",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "HRK",
-                    "name_plural": "Croatian kunas"
-                },
-                "HUF": {
-                    "symbol": "Ft",
-                    "name": "Hungarian Forint",
-                    "symbol_native": "Ft",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "HUF",
-                    "name_plural": "Hungarian forints"
-                },
-                "IDR": {
-                    "symbol": "Rp",
-                    "name": "Indonesian Rupiah",
-                    "symbol_native": "Rp",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "IDR",
-                    "name_plural": "Indonesian rupiahs"
-                },
-                "ILS": {
-                    "symbol": "₪",
-                    "name": "Israeli New Sheqel",
-                    "symbol_native": "₪",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "ILS",
-                    "name_plural": "Israeli new sheqels"
-                },
-                "INR": {
-                    "symbol": "Rs",
-                    "name": "Indian Rupee",
-                    "symbol_native": "টকা",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "INR",
-                    "name_plural": "Indian rupees"
-                },
-                "IQD": {
-                    "symbol": "IQD",
-                    "name": "Iraqi Dinar",
-                    "symbol_native": "د.ع.‏",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "IQD",
-                    "name_plural": "Iraqi dinars"
-                },
-                "IRR": {
-                    "symbol": "IRR",
-                    "name": "Iranian Rial",
-                    "symbol_native": "﷼",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "IRR",
-                    "name_plural": "Iranian rials"
-                },
-                "ISK": {
-                    "symbol": "Ikr",
-                    "name": "Icelandic Króna",
-                    "symbol_native": "kr",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "ISK",
-                    "name_plural": "Icelandic krónur"
-                },
-                "JMD": {
-                    "symbol": "J$",
-                    "name": "Jamaican Dollar",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "JMD",
-                    "name_plural": "Jamaican dollars"
-                },
-                "JOD": {
-                    "symbol": "JD",
-                    "name": "Jordanian Dinar",
-                    "symbol_native": "د.أ.‏",
-                    "decimal_digits": 3,
-                    "rounding": 0,
-                    "code": "JOD",
-                    "name_plural": "Jordanian dinars"
-                },
-                "JPY": {
-                    "symbol": "¥",
-                    "name": "Japanese Yen",
-                    "symbol_native": "￥",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "JPY",
-                    "name_plural": "Japanese yen"
-                },
-                "KES": {
-                    "symbol": "Ksh",
-                    "name": "Kenyan Shilling",
-                    "symbol_native": "Ksh",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "KES",
-                    "name_plural": "Kenyan shillings"
-                },
-                "KHR": {
-                    "symbol": "KHR",
-                    "name": "Cambodian Riel",
-                    "symbol_native": "៛",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "KHR",
-                    "name_plural": "Cambodian riels"
-                },
-                "KMF": {
-                    "symbol": "CF",
-                    "name": "Comorian Franc",
-                    "symbol_native": "FC",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "KMF",
-                    "name_plural": "Comorian francs"
-                },
-                "KRW": {
-                    "symbol": "₩",
-                    "name": "South Korean Won",
-                    "symbol_native": "₩",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "KRW",
-                    "name_plural": "South Korean won"
-                },
-                "KWD": {
-                    "symbol": "KD",
-                    "name": "Kuwaiti Dinar",
-                    "symbol_native": "د.ك.‏",
-                    "decimal_digits": 3,
-                    "rounding": 0,
-                    "code": "KWD",
-                    "name_plural": "Kuwaiti dinars"
-                },
-                "KZT": {
-                    "symbol": "KZT",
-                    "name": "Kazakhstani Tenge",
-                    "symbol_native": "тңг.",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "KZT",
-                    "name_plural": "Kazakhstani tenges"
-                },
-                "LBP": {
-                    "symbol": "LB£",
-                    "name": "Lebanese Pound",
-                    "symbol_native": "ل.ل.‏",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "LBP",
-                    "name_plural": "Lebanese pounds"
-                },
-                "LKR": {
-                    "symbol": "SLRs",
-                    "name": "Sri Lankan Rupee",
-                    "symbol_native": "SL Re",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "LKR",
-                    "name_plural": "Sri Lankan rupees"
-                },
-                "LTL": {
-                    "symbol": "Lt",
-                    "name": "Lithuanian Litas",
-                    "symbol_native": "Lt",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "LTL",
-                    "name_plural": "Lithuanian litai"
-                },
-                "LVL": {
-                    "symbol": "Ls",
-                    "name": "Latvian Lats",
-                    "symbol_native": "Ls",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "LVL",
-                    "name_plural": "Latvian lati"
-                },
-                "LYD": {
-                    "symbol": "LD",
-                    "name": "Libyan Dinar",
-                    "symbol_native": "د.ل.‏",
-                    "decimal_digits": 3,
-                    "rounding": 0,
-                    "code": "LYD",
-                    "name_plural": "Libyan dinars"
-                },
-                "MAD": {
-                    "symbol": "MAD",
-                    "name": "Moroccan Dirham",
-                    "symbol_native": "د.م.‏",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "MAD",
-                    "name_plural": "Moroccan dirhams"
-                },
-                "MDL": {
-                    "symbol": "MDL",
-                    "name": "Moldovan Leu",
-                    "symbol_native": "MDL",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "MDL",
-                    "name_plural": "Moldovan lei"
-                },
-                "MGA": {
-                    "symbol": "MGA",
-                    "name": "Malagasy Ariary",
-                    "symbol_native": "MGA",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "MGA",
-                    "name_plural": "Malagasy Ariaries"
-                },
-                "MKD": {
-                    "symbol": "MKD",
-                    "name": "Macedonian Denar",
-                    "symbol_native": "MKD",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "MKD",
-                    "name_plural": "Macedonian denari"
-                },
-                "MMK": {
-                    "symbol": "MMK",
-                    "name": "Myanma Kyat",
-                    "symbol_native": "K",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "MMK",
-                    "name_plural": "Myanma kyats"
-                },
-                "MOP": {
-                    "symbol": "MOP$",
-                    "name": "Macanese Pataca",
-                    "symbol_native": "MOP$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "MOP",
-                    "name_plural": "Macanese patacas"
-                },
-                "MUR": {
-                    "symbol": "MURs",
-                    "name": "Mauritian Rupee",
-                    "symbol_native": "MURs",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "MUR",
-                    "name_plural": "Mauritian rupees"
-                },
-                "MXN": {
-                    "symbol": "MX$",
-                    "name": "Mexican Peso",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "MXN",
-                    "name_plural": "Mexican pesos"
-                },
-                "MYR": {
-                    "symbol": "RM",
-                    "name": "Malaysian Ringgit",
-                    "symbol_native": "RM",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "MYR",
-                    "name_plural": "Malaysian ringgits"
-                },
-                "MZN": {
-                    "symbol": "MTn",
-                    "name": "Mozambican Metical",
-                    "symbol_native": "MTn",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "MZN",
-                    "name_plural": "Mozambican meticals"
-                },
-                "NAD": {
-                    "symbol": "N$",
-                    "name": "Namibian Dollar",
-                    "symbol_native": "N$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "NAD",
-                    "name_plural": "Namibian dollars"
-                },
-                "NGN": {
-                    "symbol": "₦",
-                    "name": "Nigerian Naira",
-                    "symbol_native": "₦",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "NGN",
-                    "name_plural": "Nigerian nairas"
-                },
-                "NIO": {
-                    "symbol": "C$",
-                    "name": "Nicaraguan Córdoba",
-                    "symbol_native": "C$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "NIO",
-                    "name_plural": "Nicaraguan córdobas"
-                },
-                "NOK": {
-                    "symbol": "Nkr",
-                    "name": "Norwegian Krone",
-                    "symbol_native": "kr",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "NOK",
-                    "name_plural": "Norwegian kroner"
-                },
-                "NPR": {
-                    "symbol": "NPRs",
-                    "name": "Nepalese Rupee",
-                    "symbol_native": "नेरू",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "NPR",
-                    "name_plural": "Nepalese rupees"
-                },
-                "NZD": {
-                    "symbol": "NZ$",
-                    "name": "New Zealand Dollar",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "NZD",
-                    "name_plural": "New Zealand dollars"
-                },
-                "OMR": {
-                    "symbol": "OMR",
-                    "name": "Omani Rial",
-                    "symbol_native": "ر.ع.‏",
-                    "decimal_digits": 3,
-                    "rounding": 0,
-                    "code": "OMR",
-                    "name_plural": "Omani rials"
-                },
-                "PAB": {
-                    "symbol": "B/.",
-                    "name": "Panamanian Balboa",
-                    "symbol_native": "B/.",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "PAB",
-                    "name_plural": "Panamanian balboas"
-                },
-                "PEN": {
-                    "symbol": "S/.",
-                    "name": "Peruvian Nuevo Sol",
-                    "symbol_native": "S/.",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "PEN",
-                    "name_plural": "Peruvian nuevos soles"
-                },
-                "PHP": {
-                    "symbol": "₱",
-                    "name": "Philippine Peso",
-                    "symbol_native": "₱",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "PHP",
-                    "name_plural": "Philippine pesos"
-                },
-                "PKR": {
-                    "symbol": "PKRs",
-                    "name": "Pakistani Rupee",
-                    "symbol_native": "₨",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "PKR",
-                    "name_plural": "Pakistani rupees"
-                },
-                "PLN": {
-                    "symbol": "zł",
-                    "name": "Polish Zloty",
-                    "symbol_native": "zł",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "PLN",
-                    "name_plural": "Polish zlotys"
-                },
-                "PYG": {
-                    "symbol": "₲",
-                    "name": "Paraguayan Guarani",
-                    "symbol_native": "₲",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "PYG",
-                    "name_plural": "Paraguayan guaranis"
-                },
-                "QAR": {
-                    "symbol": "QR",
-                    "name": "Qatari Rial",
-                    "symbol_native": "ر.ق.‏",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "QAR",
-                    "name_plural": "Qatari rials"
-                },
-                "RON": {
-                    "symbol": "RON",
-                    "name": "Romanian Leu",
-                    "symbol_native": "RON",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "RON",
-                    "name_plural": "Romanian lei"
-                },
-                "RSD": {
-                    "symbol": "din.",
-                    "name": "Serbian Dinar",
-                    "symbol_native": "дин.",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "RSD",
-                    "name_plural": "Serbian dinars"
-                },
-                "RUB": {
-                    "symbol": "RUB",
-                    "name": "Russian Ruble",
-                    "symbol_native": "руб.",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "RUB",
-                    "name_plural": "Russian rubles"
-                },
-                "RWF": {
-                    "symbol": "RWF",
-                    "name": "Rwandan Franc",
-                    "symbol_native": "FR",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "RWF",
-                    "name_plural": "Rwandan francs"
-                },
-                "SAR": {
-                    "symbol": "SR",
-                    "name": "Saudi Riyal",
-                    "symbol_native": "ر.س.‏",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "SAR",
-                    "name_plural": "Saudi riyals"
-                },
-                "SDG": {
-                    "symbol": "SDG",
-                    "name": "Sudanese Pound",
-                    "symbol_native": "SDG",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "SDG",
-                    "name_plural": "Sudanese pounds"
-                },
-                "SEK": {
-                    "symbol": "Skr",
-                    "name": "Swedish Krona",
-                    "symbol_native": "kr",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "SEK",
-                    "name_plural": "Swedish kronor"
-                },
-                "SGD": {
-                    "symbol": "S$",
-                    "name": "Singapore Dollar",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "SGD",
-                    "name_plural": "Singapore dollars"
-                },
-                "SOS": {
-                    "symbol": "Ssh",
-                    "name": "Somali Shilling",
-                    "symbol_native": "Ssh",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "SOS",
-                    "name_plural": "Somali shillings"
-                },
-                "SYP": {
-                    "symbol": "SY£",
-                    "name": "Syrian Pound",
-                    "symbol_native": "ل.س.‏",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "SYP",
-                    "name_plural": "Syrian pounds"
-                },
-                "THB": {
-                    "symbol": "฿",
-                    "name": "Thai Baht",
-                    "symbol_native": "฿",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "THB",
-                    "name_plural": "Thai baht"
-                },
-                "TND": {
-                    "symbol": "DT",
-                    "name": "Tunisian Dinar",
-                    "symbol_native": "د.ت.‏",
-                    "decimal_digits": 3,
-                    "rounding": 0,
-                    "code": "TND",
-                    "name_plural": "Tunisian dinars"
-                },
-                "TOP": {
-                    "symbol": "T$",
-                    "name": "Tongan Paʻanga",
-                    "symbol_native": "T$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "TOP",
-                    "name_plural": "Tongan paʻanga"
-                },
-                "TRY": {
-                    "symbol": "TL",
-                    "name": "Turkish Lira",
-                    "symbol_native": "TL",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "TRY",
-                    "name_plural": "Turkish Lira"
-                },
-                "TTD": {
-                    "symbol": "TT$",
-                    "name": "Trinidad and Tobago Dollar",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "TTD",
-                    "name_plural": "Trinidad and Tobago dollars"
-                },
-                "TWD": {
-                    "symbol": "NT$",
-                    "name": "New Taiwan Dollar",
-                    "symbol_native": "NT$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "TWD",
-                    "name_plural": "New Taiwan dollars"
-                },
-                "TZS": {
-                    "symbol": "TSh",
-                    "name": "Tanzanian Shilling",
-                    "symbol_native": "TSh",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "TZS",
-                    "name_plural": "Tanzanian shillings"
-                },
-                "UAH": {
-                    "symbol": "₴",
-                    "name": "Ukrainian Hryvnia",
-                    "symbol_native": "₴",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "UAH",
-                    "name_plural": "Ukrainian hryvnias"
-                },
-                "UGX": {
-                    "symbol": "USh",
-                    "name": "Ugandan Shilling",
-                    "symbol_native": "USh",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "UGX",
-                    "name_plural": "Ugandan shillings"
-                },
-                "UYU": {
-                    "symbol": "$U",
-                    "name": "Uruguayan Peso",
-                    "symbol_native": "$",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "UYU",
-                    "name_plural": "Uruguayan pesos"
-                },
-                "UZS": {
-                    "symbol": "UZS",
-                    "name": "Uzbekistan Som",
-                    "symbol_native": "UZS",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "UZS",
-                    "name_plural": "Uzbekistan som"
-                },
-                "VEF": {
-                    "symbol": "Bs.F.",
-                    "name": "Venezuelan Bolívar",
-                    "symbol_native": "Bs.F.",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "VEF",
-                    "name_plural": "Venezuelan bolívars"
-                },
-                "VND": {
-                    "symbol": "₫",
-                    "name": "Vietnamese Dong",
-                    "symbol_native": "₫",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "VND",
-                    "name_plural": "Vietnamese dong"
-                },
-                "XAF": {
-                    "symbol": "FCFA",
-                    "name": "CFA Franc BEAC",
-                    "symbol_native": "FCFA",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "XAF",
-                    "name_plural": "CFA francs BEAC"
-                },
-                "XOF": {
-                    "symbol": "CFA",
-                    "name": "CFA Franc BCEAO",
-                    "symbol_native": "CFA",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "XOF",
-                    "name_plural": "CFA francs BCEAO"
-                },
-                "YER": {
-                    "symbol": "YR",
-                    "name": "Yemeni Rial",
-                    "symbol_native": "ر.ي.‏",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "YER",
-                    "name_plural": "Yemeni rials"
-                },
-                "ZAR": {
-                    "symbol": "R",
-                    "name": "South African Rand",
-                    "symbol_native": "R",
-                    "decimal_digits": 2,
-                    "rounding": 0,
-                    "code": "ZAR",
-                    "name_plural": "South African rand"
-                },
-                "ZMK": {
-                    "symbol": "ZK",
-                    "name": "Zambian Kwacha",
-                    "symbol_native": "ZK",
-                    "decimal_digits": 0,
-                    "rounding": 0,
-                    "code": "ZMK",
-                    "name_plural": "Zambian kwachas"
-                }
-            },
-            sex: null,
-            user: null,
-            csrfToken: window.Laravel.csrfToken
+            open: null
         };
     },
 
-    methods: {
-        close: function close() {
-            this.options = null;
-            this.keys = null;
-        },
-        searchCurrencies: function searchCurrencies(event) {
-            var _this = this;
-
-            if (event.target.value.length > 0) {
-                var regexp = this.buildRegex(event);
-                this.keys = Object.keys(this.currencies).filter(function (k) {
-                    return _this.currencies[k].name.match(new RegExp(regexp, 'i'));
-                });
-            }
-        },
-        search: function search(event) {
-            if (event.target.value.length > 0) {
-                var regexp = this.buildRegex(event);
-                this.options = this.countries.filter(function (nom) {
-                    return nom.match(new RegExp(regexp, 'i'));
-                });
-            }
-        },
-        buildRegex: function buildRegex(event) {
-            var val = event.target.value;
-            var regexp = '\\b(.*)';
-            for (var i in val) {
-                if (val[i] !== ' ') {
-                    regexp += '(' + val[i] + ')(.*)';
-                }
-            }
-            return regexp += '\\b';
-        },
-        select: function select(nom) {
-            this.$el.querySelector('input[name=country]').value = nom;
-            this.$el.querySelector('input[name=country]').focus();
-        },
-        selectCurrency: function selectCurrency(key) {
-            this.$el.querySelector('input[name=currency]').value = this.currencies[key].symbol;
-            this.$el.querySelector('input[name=currency]').focus();
-        },
-        submit: function submit(classe) {
-            this.$el.querySelector('.' + classe + ' .btn-submit').click();
-        },
-        next: function next() {
-            this.$el.querySelector('.md-step-actions button').click();
-        },
-        store: function store(formdata) {
-            var _this2 = this;
-
-            console.log(formdata);
-            var date = formdata.get('jour') + " " + formdata.get('mois') + ", " + formdata.get('annee');
-            formdata.append('birthday', date);
-            formdata.delete('jour');
-            formdata.delete('mois');
-            formdata.delete('annee');
-            console.log(date, formdata);
-            this.$user.save(null, formdata).then(function (response) {
-                response.json().then(function (data) {
-                    _this2.user = data;
-                    _this2.$el.querySelector('.md-step-actions button').click();
-                    window.scrollTo(null, 0);
-                });
-            }, function (response) {
-                response.json().then(function (data) {
-                    if (response.status === 422) {
-                        var firstEl = void 0;
-                        Object.keys(data).map(function (k, i) {
-                            var el = _this2.parentNode(_this2.$el.querySelector('input[name=' + k + ']'), 'md-input-container');
-                            var fieldName = el.querySelector('label') ? el.querySelector('label').innerText : k;
-                            if (i === 0) firstEl = el;
-                            el.classList.add('md-input-invalid');
-                            var mot = data[k].split(" ")[1];
-                            el.querySelector('.md-error').innerText = data[k].replace(mot, fieldName.toLowerCase());
-                        });
-                        firstEl.scrollIntoViewIfNeeded();
-                    }
-                });
-            });
-        },
-        confirm: function confirm() {
-            var _this3 = this;
-
-            if (this.confirmation === "email") {
-                this.$user.query({ path: "confirmer/email" }).then(function (response) {
-                    response.json().then(function (data) {});
-                });
-            } else if (this.confirmation === "sms") {
-                this.$user.query({ path: "confirmer/sms" }).then(function (response) {
-                    response.json().then(function (data) {
-                        _this3.$refs['confirmation'].open();
-                    });
-                });
-            }
-        }
-    },
-    mounted: function mounted() {
-        this.$user = this.$resource('/user{/path}');
-        this.$el.querySelectorAll('input[type=radio]').forEach(function (el) {
-            el.setAttribute('required', 'required');
-        });
-    },
-
     watch: {
-        sex: function sex(value) {
-            this.$el.querySelector('input[name=sex]').checked = true;
+        switcher: function switcher(data) {
+            this.$refs['commandeModal'].open();
         }
     }
 });
 
 /***/ }),
 
-/***/ 115:
+/***/ 107:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -1409,901 +421,26 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { on: { click: _vm.close } },
+    {
+      directives: [
+        { name: "show", rawName: "v-show", value: _vm.open, expression: "open" }
+      ]
+    },
     [
-      _c(
-        "md-layout",
-        { staticClass: "grille", attrs: { "md-gutter": "" } },
-        [
-          _c(
-            "md-layout",
-            {
-              attrs: {
-                "md-flex": "50",
-                "md-column": "",
-                "md-flex-xsmall": "100",
-                "md-flex-medium": "50"
-              }
-            },
-            [
-              _c(
-                "md-stepper",
-                [
-                  _c(
-                    "md-step",
-                    {
-                      attrs: {
-                        "md-editable": false,
-                        "md-button-continue": "continuer",
-                        "md-button-back": " "
-                      }
-                    },
-                    [
-                      _c("p", [
-                        _vm._v(
-                          "Première étape: remplissez ce formulaire puis cliquez sur continuer"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("md-whiteframe", { attrs: { "md-elevation": "3" } }, [
-                        _c(
-                          "form",
-                          {
-                            directives: [
-                              {
-                                name: "validateForm",
-                                rawName: "v-validateForm",
-                                value: _vm.store,
-                                expression: "store"
-                              }
-                            ],
-                            staticClass: "inscrire"
-                          },
-                          [
-                            _c(
-                              "md-input-container",
-                              {
-                                directives: [
-                                  {
-                                    name: "validate",
-                                    rawName: "v-validate",
-                                    value: "required",
-                                    expression: "'required'"
-                                  }
-                                ]
-                              },
-                              [
-                                _c("label", [_vm._v("Nom")]),
-                                _vm._v(" "),
-                                _c("md-input", {
-                                  attrs: {
-                                    type: "text",
-                                    name: "name",
-                                    required: ""
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "md-error" })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "md-input-container",
-                              {
-                                directives: [
-                                  {
-                                    name: "validate",
-                                    rawName: "v-validate",
-                                    value: "required",
-                                    expression: "'required'"
-                                  }
-                                ]
-                              },
-                              [
-                                _c("label", [_vm._v("Prenom")]),
-                                _vm._v(" "),
-                                _c("md-input", {
-                                  attrs: {
-                                    type: "text",
-                                    name: "forename",
-                                    required: ""
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "md-error" })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "md-input-container",
-                              {
-                                directives: [
-                                  {
-                                    name: "validate",
-                                    rawName: "v-validate",
-                                    value: "required|email",
-                                    expression: "'required|email'"
-                                  }
-                                ]
-                              },
-                              [
-                                _c("label", [_vm._v("Email")]),
-                                _vm._v(" "),
-                                _c("md-input", {
-                                  attrs: {
-                                    type: "email",
-                                    name: "email",
-                                    required: ""
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "md-error" })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "md-layout",
-                              { staticClass: "date", attrs: { gutter: "" } },
-                              [
-                                _c(
-                                  "md-layout",
-                                  {
-                                    attrs: {
-                                      "md-flex": "30",
-                                      "md-flex-small": "100"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "md-input-container",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "validate",
-                                            rawName: "v-validate",
-                                            value: "required",
-                                            expression: "'required'"
-                                          }
-                                        ]
-                                      },
-                                      [
-                                        _c(
-                                          "md-select",
-                                          {
-                                            attrs: {
-                                              name: "jour",
-                                              placeholder: "Jour"
-                                            }
-                                          },
-                                          _vm._l(31, function(i, index) {
-                                            return _c(
-                                              "md-option",
-                                              {
-                                                key: index,
-                                                attrs: { value: i }
-                                              },
-                                              [_vm._v(_vm._s(i))]
-                                            )
-                                          })
-                                        ),
-                                        _vm._v(" "),
-                                        _c("span", { staticClass: "md-error" }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "md-tooltip",
-                                          { attrs: { "md-direction": "left" } },
-                                          [_vm._v("Jour de naissance")]
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "md-layout",
-                                  {
-                                    attrs: {
-                                      "md-flex": "30",
-                                      "md-flex-small": "100"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "md-input-container",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "validate",
-                                            rawName: "v-validate",
-                                            value: "required",
-                                            expression: "'required'"
-                                          }
-                                        ]
-                                      },
-                                      [
-                                        _c(
-                                          "md-select",
-                                          {
-                                            attrs: {
-                                              name: "mois",
-                                              placeholder: "Mois"
-                                            }
-                                          },
-                                          _vm._l(_vm.mois, function(item, i) {
-                                            return _c(
-                                              "md-option",
-                                              {
-                                                key: i,
-                                                attrs: { value: item }
-                                              },
-                                              [_vm._v(_vm._s(item))]
-                                            )
-                                          })
-                                        ),
-                                        _vm._v(" "),
-                                        _c("span", { staticClass: "md-error" }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "md-tooltip",
-                                          { attrs: { "md-direction": "top" } },
-                                          [_vm._v("Mois de naissance")]
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "md-layout",
-                                  {
-                                    attrs: {
-                                      "md-flex": "30",
-                                      "md-flex-small": "100"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "md-input-container",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "validate",
-                                            rawName: "v-validate",
-                                            value: "required",
-                                            expression: "'required'"
-                                          }
-                                        ]
-                                      },
-                                      [
-                                        _c(
-                                          "md-select",
-                                          {
-                                            attrs: {
-                                              name: "annee",
-                                              placeholder: "Année"
-                                            }
-                                          },
-                                          _vm._l(101, function(i, index) {
-                                            return _c(
-                                              "md-option",
-                                              {
-                                                key: index,
-                                                attrs: { value: 2010 - i }
-                                              },
-                                              [_vm._v(_vm._s(2010 - i))]
-                                            )
-                                          })
-                                        ),
-                                        _vm._v(" "),
-                                        _c("span", { staticClass: "md-error" }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "md-tooltip",
-                                          {
-                                            attrs: { "md-direction": "right" }
-                                          },
-                                          [_vm._v("Année de naissance")]
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "search-block" },
-                              [
-                                _c(
-                                  "md-input-container",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "validate",
-                                        rawName: "v-validate",
-                                        value: "required|country",
-                                        expression: "'required|country'"
-                                      }
-                                    ]
-                                  },
-                                  [
-                                    _c("label", [_vm._v("Pays")]),
-                                    _vm._v(" "),
-                                    _c("md-input", {
-                                      attrs: {
-                                        type: "search",
-                                        name: "country",
-                                        required: ""
-                                      },
-                                      nativeOn: {
-                                        keyup: function($event) {
-                                          _vm.search($event)
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c("md-icon", [_vm._v("search")]),
-                                    _vm._v(" "),
-                                    _c("span", { staticClass: "md-error" })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _vm.options && _vm.options.length > 0
-                                  ? _c(
-                                      "md-whiteframe",
-                                      {
-                                        staticClass: "autocomplete",
-                                        attrs: { "md-elevation": "3" }
-                                      },
-                                      [
-                                        _c(
-                                          "md-list",
-                                          _vm._l(_vm.options, function(
-                                            item,
-                                            index
-                                          ) {
-                                            return index < 10
-                                              ? _c(
-                                                  "md-list-item",
-                                                  {
-                                                    key: index,
-                                                    on: {
-                                                      click: function($event) {
-                                                        _vm.select(item)
-                                                      }
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                            " +
-                                                        _vm._s(item) +
-                                                        "\n                                        "
-                                                    )
-                                                  ]
-                                                )
-                                              : _vm._e()
-                                          })
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  : _vm._e()
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "search-block" },
-                              [
-                                _c(
-                                  "md-input-container",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "validate",
-                                        rawName: "v-validate",
-                                        value: "required|currency",
-                                        expression: "'required|currency'"
-                                      }
-                                    ]
-                                  },
-                                  [
-                                    _c("label", [_vm._v("Monnaie")]),
-                                    _vm._v(" "),
-                                    _c("md-input", {
-                                      attrs: {
-                                        type: "search",
-                                        name: "currency",
-                                        required: ""
-                                      },
-                                      nativeOn: {
-                                        keyup: function($event) {
-                                          _vm.searchCurrencies($event)
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c("md-icon", [_vm._v("search")]),
-                                    _vm._v(" "),
-                                    _c("span", { staticClass: "md-error" })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _vm.keys && _vm.keys.length > 0
-                                  ? _c(
-                                      "md-whiteframe",
-                                      {
-                                        staticClass: "autocomplete",
-                                        attrs: { "md-elevation": "3" }
-                                      },
-                                      [
-                                        _c(
-                                          "md-list",
-                                          _vm._l(_vm.keys, function(
-                                            key,
-                                            index
-                                          ) {
-                                            return index < 10
-                                              ? _c(
-                                                  "md-list-item",
-                                                  {
-                                                    key: index,
-                                                    on: {
-                                                      click: function($event) {
-                                                        _vm.selectCurrency(key)
-                                                      }
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                            " +
-                                                        _vm._s(
-                                                          _vm.currencies[key]
-                                                            .name
-                                                        ) +
-                                                        " "
-                                                    ),
-                                                    _c(
-                                                      "md-button",
-                                                      {
-                                                        on: {
-                                                          click: function(
-                                                            $event
-                                                          ) {
-                                                            _vm.selectCurrency(
-                                                              key
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            _vm.currencies[key]
-                                                              .symbol
-                                                          )
-                                                        )
-                                                      ]
-                                                    )
-                                                  ],
-                                                  1
-                                                )
-                                              : _vm._e()
-                                          })
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  : _vm._e()
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "md-input-container",
-                              {
-                                directives: [
-                                  {
-                                    name: "validate",
-                                    rawName: "v-validate",
-                                    value: "required|number",
-                                    expression: "'required|number'"
-                                  }
-                                ]
-                              },
-                              [
-                                _c("label", [_vm._v("Numero")]),
-                                _vm._v(" "),
-                                _c("md-input", {
-                                  attrs: {
-                                    type: "tel",
-                                    name: "number",
-                                    required: ""
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("md-icon", [_vm._v("phone")]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "md-error" }),
-                                _vm._v(" "),
-                                _c(
-                                  "md-tooltip",
-                                  { attrs: { "md-direction": "left" } },
-                                  [
-                                    _vm._v(
-                                      "Le code de votre pays suivit de votre numero de telephone"
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "md-input-container",
-                              {
-                                directives: [
-                                  {
-                                    name: "validate",
-                                    rawName: "v-validate",
-                                    value: "required|password",
-                                    expression: "'required|password'"
-                                  }
-                                ],
-                                attrs: { "md-has-password": "" }
-                              },
-                              [
-                                _c("label", [_vm._v("Mot de passe")]),
-                                _vm._v(" "),
-                                _c("md-input", {
-                                  attrs: {
-                                    minlength: "8",
-                                    type: "password",
-                                    name: "password",
-                                    required: ""
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "md-error" })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "md-input-container",
-                              {
-                                directives: [
-                                  {
-                                    name: "validate",
-                                    rawName: "v-validate",
-                                    value: "required|confirm",
-                                    expression: "'required|confirm'"
-                                  }
-                                ],
-                                attrs: { "md-has-password": "" }
-                              },
-                              [
-                                _c("label", [_vm._v("Mot de passe")]),
-                                _vm._v(" "),
-                                _c("md-input", {
-                                  attrs: {
-                                    minlength: "8",
-                                    type: "password",
-                                    name: "confirm",
-                                    required: ""
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "md-error" })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              [
-                                _c(
-                                  "md-radio",
-                                  {
-                                    staticClass: "md-primary",
-                                    attrs: {
-                                      name: "sex",
-                                      "md-value": "H",
-                                      "md-required": ""
-                                    },
-                                    model: {
-                                      value: _vm.sex,
-                                      callback: function($$v) {
-                                        _vm.sex = $$v
-                                      },
-                                      expression: "sex"
-                                    }
-                                  },
-                                  [_vm._v("Homme")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "md-radio",
-                                  {
-                                    staticClass: "md-primary",
-                                    attrs: { name: "sex", "md-value": "F" },
-                                    model: {
-                                      value: _vm.sex,
-                                      callback: function($$v) {
-                                        _vm.sex = $$v
-                                      },
-                                      expression: "sex"
-                                    }
-                                  },
-                                  [_vm._v("Femme")]
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "md-button",
-                              {
-                                staticClass: "btn-submit",
-                                attrs: { type: "submit" }
-                              },
-                              [_vm._v("continuer")]
-                            )
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "step-btn" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "md-button md-raised md-primary md-theme-default",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                _vm.submit("inscrire")
-                              }
-                            }
-                          },
-                          [
-                            _vm._v("continuer"),
-                            _c("div", { staticClass: "md-ink-ripple" }, [
-                              _c("div", {
-                                staticClass: "md-ripple",
-                                staticStyle: { width: "0px", height: "0px" }
-                              })
-                            ])
-                          ]
-                        )
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "md-step",
-                    {
-                      attrs: {
-                        "md-editable": false,
-                        "md-button-continue": "continuer",
-                        "md-button-back": " "
-                      }
-                    },
-                    [
-                      _c("p", [
-                        _vm._v(
-                          "Deuxième étape: Sélectionner votre emplacement géographique sur la carte"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { attrs: { id: "map" } }, [
-                        _c("iframe", {
-                          staticStyle: { border: "0" },
-                          attrs: {
-                            width: "600",
-                            height: "600",
-                            frameborder: "0",
-                            src:
-                              "https://www.google.com/maps/embed/v1/place?key=AIzaSyAWquOlsQNH75OQg5PR6m2e71fnPFlyO7o\n                                &q=Space+Needle,Seattle+WA",
-                            allowfullscreen: ""
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "step-btn" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "md-button md-raised md-primary md-theme-default",
-                            attrs: { type: "button" },
-                            on: { click: _vm.next }
-                          },
-                          [
-                            _vm._v("suivant"),
-                            _c("div", { staticClass: "md-ink-ripple" }, [
-                              _c("div", {
-                                staticClass: "md-ripple",
-                                staticStyle: { width: "0px", height: "0px" }
-                              })
-                            ])
-                          ]
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "md-step",
-                    {
-                      attrs: {
-                        "md-button-continue": "terminer",
-                        "md-button-back": " "
-                      }
-                    },
-                    [
-                      _c("p", [
-                        _vm._v(
-                          "Et enfin troisième étape. Choississez un moyen de confirmation de compte"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        [
-                          _c(
-                            "md-radio",
-                            {
-                              staticClass: "md-primary",
-                              attrs: { "md-value": "email" },
-                              model: {
-                                value: _vm.confirmation,
-                                callback: function($$v) {
-                                  _vm.confirmation = $$v
-                                },
-                                expression: "confirmation"
-                              }
-                            },
-                            [_vm._v("Confirmation par email.")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "md-radio",
-                            {
-                              staticClass: "md-primary",
-                              attrs: { "md-value": "sms" },
-                              model: {
-                                value: _vm.confirmation,
-                                callback: function($$v) {
-                                  _vm.confirmation = $$v
-                                },
-                                expression: "confirmation"
-                              }
-                            },
-                            [_vm._v("Confirmation par SMS.")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "step-btn" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "md-button md-raised md-primary md-theme-default",
-                            attrs: { type: "button", id: "terminer" },
-                            on: { click: _vm.confirm }
-                          },
-                          [
-                            _vm._v("Terminer"),
-                            _c("div", { staticClass: "md-ink-ripple" }, [
-                              _c("div", {
-                                staticClass: "md-ripple",
-                                staticStyle: { width: "0px", height: "0px" }
-                              })
-                            ])
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
       _c(
         "md-dialog",
         {
-          ref: "confirmation",
-          attrs: { "md-open-from": "#terminer", "md-close-to": "#terminer" }
+          ref: "commandeModal",
+          on: {
+            open: function($event) {
+              _vm.open = true
+            },
+            close: function($event) {
+              _vm.open = false
+            }
+          }
         },
         [
-          _c("md-dialog-title", [_vm._v("Confirmation")]),
-          _vm._v(" "),
-          _c("md-dialog-content", { staticClass: "position-box" }, [
-            _c(
-              "form",
-              {
-                staticClass: "sendCode",
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    _vm.sendCode($event)
-                  }
-                }
-              },
-              [
-                _c(
-                  "md-input-container",
-                  { staticClass: "none" },
-                  [
-                    _c("md-input", {
-                      attrs: {
-                        value: _vm.csrfToken,
-                        name: "_token",
-                        type: "hidden"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "md-input-container",
-                  [
-                    _c("label", [_vm._v("Code")]),
-                    _vm._v(" "),
-                    _c("md-input", {
-                      attrs: { type: "text", name: "code", required: "" }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("small", [
-                  _vm._v(
-                    "le code peut prendre plusieur minutes avant d'arriver"
-                  )
-                ]),
-                _c("br"),
-                _vm._v(" "),
-                _c("small", [
-                  _vm._v("Je n'ai pas reçu de code de confirmation. "),
-                  _c("a", [_vm._v("Renvoyer")])
-                ]),
-                _vm._v(" "),
-                _c("md-button", {
-                  staticClass: "none btn-submit",
-                  attrs: { type: "submit" }
-                })
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
           _c(
             "md-dialog-actions",
             [
@@ -2313,31 +450,263 @@ var render = function() {
                   staticClass: "md-primary",
                   on: {
                     click: function($event) {
-                      _vm.$refs["confirmation"].close()
+                      _vm.$refs["commandeModal"].close()
                     }
                   }
                 },
-                [_vm._v("Annuler")]
-              ),
-              _vm._v(" "),
-              _c(
-                "md-button",
-                {
-                  staticClass: "md-primary",
-                  on: {
-                    click: function($event) {
-                      _vm.submit("sendCode")
-                    }
-                  }
-                },
-                [_vm._v("Confirmer")]
+                [_vm._v("X")]
               )
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _vm.commande
+            ? _c("md-dialog-title", { staticClass: "absolute" }, [
+                _vm._v("Commande de "),
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v(
+                    _vm._s(_vm.commande.user.name) +
+                      " " +
+                      _vm._s(_vm.commande.user.forename)
+                  )
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.commande
+            ? _c(
+                "md-dialog-content",
+                { staticStyle: { overflow: "hidden" } },
+                [
+                  _c(
+                    "md-layout",
+                    { attrs: { "md-gutter": "" } },
+                    [
+                      _c(
+                        "md-layout",
+                        { staticClass: "block", attrs: { "md-flex": "50" } },
+                        [
+                          _c(
+                            "md-card",
+                            [
+                              _c("md-card-media", [
+                                _c("img", {
+                                  attrs: {
+                                    src: _vm.commande.article.images[0].path
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "md-card-content",
+                                { staticStyle: { height: "70px" } },
+                                [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.commande.message) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "md-card-actions",
+                                [
+                                  _c(
+                                    "md-button",
+                                    {
+                                      on: {
+                                        click: function($event) {
+                                          _vm.openDialog(
+                                            "delete",
+                                            _vm.commande,
+                                            $event
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Supprimer")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "md-button",
+                                    {
+                                      staticClass: "md-primary md-raised",
+                                      nativeOn: {
+                                        click: function($event) {
+                                          _vm.confirm(_vm.commande, $event)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v("Confirmer"),
+                                      _vm.commande.reponse === 1
+                                        ? _c("md-icon", [_vm._v("done")])
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "md-layout",
+                        { staticClass: "block", attrs: { "md-flex": "50" } },
+                        [
+                          _c(
+                            "md-list",
+                            {
+                              staticClass: "custom-list md-triple-line",
+                              staticStyle: {
+                                "overflow-y": "auto",
+                                height: "484.33px",
+                                width: "100%"
+                              }
+                            },
+                            [
+                              _vm._l(5, function(n, i) {
+                                return _c(
+                                  "md-list-item",
+                                  { key: i },
+                                  [
+                                    _c("md-avatar", [
+                                      _c("img", {
+                                        attrs: {
+                                          src: _vm.user.avatar,
+                                          alt: "People"
+                                        }
+                                      })
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "md-list-text-container" },
+                                      [
+                                        _c("span", [_vm._v("Vous")]),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _vm._v(
+                                            "I'll be in your neighborhood doing errands..."
+                                          )
+                                        ])
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("md-divider", {
+                                      staticClass: "md-inset"
+                                    })
+                                  ],
+                                  1
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm._l(5, function(n, i) {
+                                return _c(
+                                  "md-list-item",
+                                  { key: i },
+                                  [
+                                    _c("md-avatar", [
+                                      _c("img", {
+                                        attrs: {
+                                          src: _vm.commande.user.avatar,
+                                          alt: "People"
+                                        }
+                                      })
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "md-list-text-container" },
+                                      [
+                                        _c("span", [
+                                          _vm._v(
+                                            _vm._s(_vm.commande.user.name) +
+                                              " " +
+                                              _vm._s(_vm.commande.user.forename)
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _vm._v(
+                                            "Wish I could come, but I'm out of town ..."
+                                          )
+                                        ])
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("md-divider", {
+                                      staticClass: "md-inset"
+                                    })
+                                  ],
+                                  1
+                                )
+                              })
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "md-input-container",
+                            { staticClass: "marginL" },
+                            [
+                              _c("label", [_vm._v("Message")]),
+                              _vm._v(" "),
+                              _c("md-textarea")
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            : _vm._e()
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _c("span", { staticClass: "prev-v-img" }, [
+        _c(
+          "svg",
+          { attrs: { width: "25", height: "25", viewBox: "0 0 1792 1915" } },
+          [
+            _c("path", {
+              attrs: {
+                d:
+                  "M1664 896v128q0 53-32.5 90.5t-84.5 37.5h-704l293 294q38 36 38 90t-38 90l-75 76q-37 37-90 37-52 0-91-37l-651-652q-37-37-37-90 0-52 37-91l651-650q38-38 91-38 52 0 90 38l75 74q38 38 38 91t-38 91l-293 293h704q52 0 84.5 37.5t32.5 90.5z",
+                fill: "#fff"
+              }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "next-v-img" }, [
+        _c(
+          "svg",
+          { attrs: { width: "25", height: "25", viewBox: "0 0 1792 1915" } },
+          [
+            _c("path", {
+              attrs: {
+                d:
+                  "M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293h-704q-52 0-84.5-37.5t-32.5-90.5v-128q0-53 32.5-90.5t84.5-37.5h704l-293-294q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z",
+                fill: "#fff"
+              }
+            })
+          ]
+        )
+      ])
     ],
     1
   )
@@ -2348,29 +717,276 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-d3e734ec", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-74932e9a", module.exports)
   }
 }
 
 /***/ }),
 
-/***/ 54:
+/***/ 108:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "md-layout",
+    { attrs: { "md-gutter": "" } },
+    [
+      _c("md-layout", { attrs: { "md-flex": 15, "md-column": "" } }),
+      _vm._v(" "),
+      _c(
+        "md-layout",
+        {
+          attrs: {
+            "md-column": "",
+            "md-flex-small": "100",
+            "md-flex-xsmall": "100",
+            "md-flex-medium": 100
+          }
+        },
+        [
+          _vm.loader ? _c("div", { staticClass: "panier_loading" }) : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "md-table-card",
+            [
+              _c(
+                "md-toolbar",
+                [
+                  _c("h1", { staticClass: "md-title" }, [
+                    _vm._v("Commandes reçues")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "md-menu",
+                    [
+                      _c(
+                        "md-button",
+                        {
+                          staticClass: "md-icon-button",
+                          attrs: { "md-menu-trigger": "" }
+                        },
+                        [_c("md-icon", [_vm._v("filter_list")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "md-menu-content",
+                        [
+                          _c("md-menu-item", [_vm._v("supprimer tous")]),
+                          _vm._v(" "),
+                          _c("md-menu-item", [_vm._v("ranger par")])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "md-table-alternate-header",
+                { attrs: { "md-selected-label": "selected" } },
+                [
+                  _c(
+                    "md-button",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.openDialog("delete", _vm.item, $event)
+                        }
+                      }
+                    },
+                    [
+                      _vm._v("\n                Supprimer\n                "),
+                      _c("md-icon", [_vm._v("delete")])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("md-button", { staticClass: "md-raised md-primary" }, [
+                    _vm._v("Confirmer")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "md-table",
+                { attrs: { "md-sort": "date", "md-sort-type": "desc" } },
+                [
+                  _c(
+                    "md-table-header",
+                    [
+                      _c(
+                        "md-table-row",
+                        [
+                          _c("md-table-head", [_vm._v("Articles")]),
+                          _vm._v(" "),
+                          _c(
+                            "md-table-head",
+                            { attrs: { "md-sort-by": "vente" } },
+                            [_vm._v("Prix de ventes")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "md-table-head",
+                            { attrs: { "md-sort-by": "achat" } },
+                            [_vm._v("Prix de d'achats")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "md-table-head",
+                            [
+                              _c("md-icon", [_vm._v("message")]),
+                              _vm._v(" "),
+                              _c("span", [_vm._v("Messages")])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "md-table-head",
+                            { attrs: { "md-sort-by": "date" } },
+                            [_vm._v("Dates")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "md-table-body",
+                    _vm._l(_vm.commandes, function(item) {
+                      return _c(
+                        "md-table-row",
+                        {
+                          key: item.id,
+                          staticStyle: { cursor: "pointer" },
+                          attrs: { "md-item": item, "md-selection": "" },
+                          nativeOn: {
+                            click: function($event) {
+                              _vm.openModal(item)
+                            }
+                          }
+                        },
+                        [
+                          _c("md-table-cell", [
+                            _vm._v(_vm._s(item.article.nom))
+                          ]),
+                          _vm._v(" "),
+                          _c("md-table-cell", [
+                            _vm._v(_vm._s(item.article.prix))
+                          ]),
+                          _vm._v(" "),
+                          _c("md-table-cell", [
+                            _vm._v(_vm._s(item.article.prix))
+                          ]),
+                          _vm._v(" "),
+                          _c("md-table-cell", [_vm._v(_vm._s(item.message))]),
+                          _vm._v(" "),
+                          _c(
+                            "md-table-cell",
+                            {
+                              directives: [
+                                {
+                                  name: "observable",
+                                  rawName: "v-observable.params",
+                                  value: {
+                                    callback: _vm.timerRelatif,
+                                    data: item
+                                  },
+                                  expression:
+                                    "{callback:timerRelatif,data:item}",
+                                  modifiers: { params: true }
+                                }
+                              ]
+                            },
+                            [_vm._v(_vm._s(item.created_at))]
+                          )
+                        ],
+                        1
+                      )
+                    })
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("md-table-pagination", {
+                attrs: {
+                  "md-size": "3",
+                  "md-total": "12",
+                  "md-page": "4",
+                  "md-label": "Lignes",
+                  "md-separator": "sur",
+                  "md-page-options": [12, 9, 6, 3]
+                },
+                on: { pagination: _vm.onPagination }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("modal-chat", {
+            attrs: { commande: _vm.commande, switcher: _vm.switcher }
+          }),
+          _vm._v(" "),
+          _c("md-dialog-confirm", {
+            ref: "delete",
+            attrs: {
+              "md-title": "Suppression",
+              "md-content-html":
+                "Etes vous sur de bien vouloir supprimer cette commande?",
+              "md-ok-text": "confirmer",
+              "md-cancel-text": "annuler"
+            },
+            on: { close: _vm.onClose }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("md-layout", { attrs: { "md-flex": 15, "md-column": "" } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-19fea62e", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(112)
+  __webpack_require__(100)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(114)
+var __vue_script__ = __webpack_require__(102)
 /* template */
-var __vue_template__ = __webpack_require__(115)
+var __vue_template__ = __webpack_require__(108)
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-19fea62e"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -2380,9 +996,9 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/welcome/inscription/Inscription.vue"
+Component.options.__file = "resources/assets/js/components/compte/commandes/Commandes.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Inscription.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] Commandes.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -2391,9 +1007,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d3e734ec", Component.options)
+    hotAPI.createRecord("data-v-19fea62e", Component.options)
   } else {
-    hotAPI.reload("data-v-d3e734ec", Component.options)
+    hotAPI.reload("data-v-19fea62e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true

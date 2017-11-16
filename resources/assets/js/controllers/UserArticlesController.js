@@ -4,7 +4,7 @@ let status = []
 
 class Model{
     constructor(){
-        this.state = store.state.articles
+        this.state = store.state.articles.filter(article=>article.user_id === window.user.id)
     }
 
     getAllArticles(order){

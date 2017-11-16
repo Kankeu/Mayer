@@ -18,8 +18,8 @@ Route::get('user/confirmer/{choix}','UserController@confirmer')->where('choix', 
 Route::get('user/confirmation/{id}/{token}','UserController@confirmation')->where('id','[0-9]*');
 Route::resource('/user','UserController');
 Route::group(['prefix'=>'/','middleware' => 'user'], function (){
-    Route::get('/panier','ViewsController@compte');
-    Route::get('/commandes','ViewsController@compte');
+    //Route::get('/panier','ViewsController@compte');
+    //Route::get('/commandes','ViewsController@compte');
     Route::get('/boutique','ViewsController@compte');
     Route::get('/home','ViewsController@compte')->name('home');
     Route::get('/magazin','MagazinController@index');

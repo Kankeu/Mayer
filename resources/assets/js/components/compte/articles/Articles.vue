@@ -103,13 +103,14 @@
                             </md-card-content>
                         </md-card-expand>
                     </md-card>
-                    <commentaire :article="article" :open="article.commentOpen"></commentaire>
+                    <!--<commentaire :article="article" :margin="true" :open="article.commentOpen"></commentaire>-->                    
                     <fullScreen :article="article" :open="article.commentOpen"></fullScreen>
                 </md-layout>
       </md-layout>
       <md-spinner class="spinner" md-indeterminate v-see></md-spinner>
-       <md-snackbar :md-position="'bottom center'" ref="snackbar" :md-duration="5000">
-            <span class="red">Erreur lors du chargement des articles</span>
+        <md-snackbar ref="snackbar" :md-duration="5000">
+            <span>Erreur lors du chargement des articles.</span>
+            <md-button class="md-accent" md-theme="light-blue" @click="$refs.snackbar.close()">Retry</md-button>
         </md-snackbar>
         <md-dialog-confirm
             :md-title="'Suppression'"

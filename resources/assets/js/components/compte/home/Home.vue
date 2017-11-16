@@ -3,7 +3,7 @@
     <md-layout md-gutter>
         <md-layout :md-flex="15" md-column></md-layout>
         <md-layout md-column :md-flex="70"  md-flex-xsmall="100" :md-flex-medium="100">
-            <articles url="/articles{/id}" :withResize="true"></articles>
+            <articles url="/articles{/id}"></articles>
         </md-layout>
         <md-layout :md-flex="15" md-column></md-layout>
     </md-layout>

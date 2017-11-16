@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
 
-class user
+class user 
 {
     /**
      * Handle an incoming request.
@@ -19,7 +20,12 @@ class user
     {
         if(Auth::check())
         {
-            return $next($request);
+            if($request->ajax()){
+                return $next($request);
+            }else{
+                return new Response(view('boutique'));
+            }
+            
         }else{
             return redirect('/');
         }

@@ -19,7 +19,7 @@ nodejs: laravel-echo-server.json install
 	laravel-echo-server start&
 
 watch: install
-	npm run watch&
+	node_modules/.bin/webpack --watch --watch-poll --config=node_modules/laravel-mix/setup/webpack.config.js&
 
 dev: install nodejs watch redis queue vue
 	php artisan serve

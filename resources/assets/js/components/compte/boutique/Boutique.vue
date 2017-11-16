@@ -13,7 +13,7 @@
     export default{
         components: {articles},
         methods: {
-
+            close(){}
         },
     }
 </script>

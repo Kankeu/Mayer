@@ -120,7 +120,7 @@
             }
         },
         mounted (){
-          this.$panier = this.$resource('/articles/panier{/id}')
+          this.$panier = this.$resource('/panier{/id}')
           this.loadPanier()
         }
     }

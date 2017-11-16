@@ -1,7 +1,7 @@
 <template>
   <transition name="translateY">
     <div class="comment" v-if="open" :key="open">
-      <div class="alert alert-info alertCmt" v-if="empty">
+      <div v-if="empty">
             <ul>
                 <li>:)&nbsp;&nbsp;Soyez le premier à commenter cette article.</li>
             </ul>
@@ -20,8 +20,9 @@
                             </md-avatar>
 
                             <div class="md-list-text-container">
-                                <span>{{commentaire.user.name|uppercase}} {{commentaire.user.forename}}</span>
-                                <p>{{commentaire.commentaire}}</p>
+                                <span><b>{{commentaire.user.name|uppercase}} {{commentaire.user.forename}}</b></span>
+
+                                <p class="">{{commentaire.commentaire}}</p>
                             </div>
                             <md-button class="md-icon-button md-list-action" :class="check(commentaire.liked)" @click="like(commentaire)">
                                 <md-icon>favorite_border</md-icon>
@@ -55,7 +56,7 @@
                             </md-avatar>
 
                             <div class="md-list-text-container">
-                                <span>{{commentaire.previewsreponse.user.name|uppercase}} {{commentaire.previewsreponse.user.forename}}</span>
+                                <span><b>{{commentaire.previewsreponse.user.name|uppercase}} {{commentaire.previewsreponse.user.forename}}</b></span>
                                 <p>{{commentaire.previewsreponse.commentaire}}</p>
                             </div>
 
@@ -83,7 +84,7 @@
                             </md-avatar>
 
                             <div class="md-list-text-container">
-                                <span>{{reponse.user.name|uppercase}} {{reponse.user.forename}}</span>
+                                <span><b>{{reponse.user.name|uppercase}} {{reponse.user.forename}}</b></span>
                                 <p>{{reponse.commentaire}}</p>
                             </div>
                             <md-button class="md-icon-button md-list-action" :class="check(reponse.liked)" @click="like(reponse)">
@@ -119,9 +120,9 @@
 
     export default {
         props: {
-          open: Boolean,
-          margin: {type: boolean,default: "margin"},
-          article: Object,
+            open: Boolean,
+            margin: {type: Boolean,default: "margin"},
+            article: Object,
         },
         data () {
             return {
@@ -223,19 +224,22 @@
             },
         },
         mounted(){
+            console.log(this.article)
           this.$commentaire = this.$resource('/comments/'+this.article.id+'{/id}')
         },
-        watch:{
-          open(data){
-            if(data===true){
-              this.loadComments()
-            }else{
-              this.repondre_id = null
+        watch: {
+            open(data){
+                console.log("dfsdf",data)
+                if(data===true){
+                    this.loadComments()
+                }else{
+                    this.repondre_id = null
+                }
+            },
+            commentaire(data){
+                if(data.length===0) this.empty = true
             }
-          },
-          commentaire(data){
-            if(data.length===0) this.empty = true
-          }
+           
         }
     }
 </script>
@@ -245,6 +249,9 @@
   text-overflow: ellipsis !important;
   overflow: hidden !important;
   word-wrap: initial !important;
+}
+.wBreack{
+    word-wrap: break-word !important;
 }
 .comments{
   transform: translateX(0);
@@ -420,5 +427,10 @@
     }
     small{
         display : inline-block;
+    }
+    .md-list-text-container p { 
+        text-overflow: initial !important;
+        word-wrap: break-word !important;
+        white-space: initial !important;
     }
 </style>

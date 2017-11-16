@@ -1650,7 +1650,9 @@ var Model = function () {
     function Model() {
         _classCallCheck(this, Model);
 
-        this.state = __WEBPACK_IMPORTED_MODULE_0__store_Store__["a" /* default */].state.articles;
+        this.state = __WEBPACK_IMPORTED_MODULE_0__store_Store__["a" /* default */].state.articles.filter(function (article) {
+            return article.user_id === window.user.id;
+        });
     }
 
     _createClass(Model, [{

@@ -1,4 +1,4 @@
-require('./bootstrap')
+require("./bootstrap")
 let Echo = require('laravel-echo')
 window.Echo  = new Echo({
     broadcaster: "socket.io",

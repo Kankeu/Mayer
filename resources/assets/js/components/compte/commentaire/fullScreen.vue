@@ -1,12 +1,16 @@
 
 <template>
-  <div v-if=open>
+  <div @dblclick="close" v-show=open>
     <div class="backdrop">
-        <div class="alt">
-            <div class="img_atl"><img :src="article.images[0].path"></div>
-            <div class="block_cmt"><commentaire :article="article" :margin="false" :open="open"></commentaire></div>
-        </div>
-        <div class="atl_sup"><div v-for="n in 10"><img :src="article.images[0].path"></div></div>
+        <span class="close" @click="close">X</span>
+        <md-layout md-column md-gutter>
+            <md-layout md-flex="80" class="glob" md-gutter>
+                <md-layout  md-flex="45"><img :src="article.images[0].path"></md-layout>
+                <md-layout md-flex="5"></md-layout>
+                <md-layout  md-flex="50"><commentaire class="comments" :article="article" :margin="false" :open="article.commentOpen"></commentaire></md-layout>
+            </md-layout>
+            <md-layout><div class="atl_sup"><div v-for="n in 10"><img :src="article.images[0].path"></div></div></md-layout>
+        </md-layout>
     </div>
   </div>
 </template>
@@ -22,12 +26,15 @@ export default {
     },
     data(){
         return { 
-
+            state:{scroll:null}
         }
     },
     methods:{
         loadComments(){
             console.log(this.article)
+        },
+        close(){
+            this.article.commentOpen = false
         }
     },
     mounted(){
@@ -36,7 +43,12 @@ export default {
     watch:{
         open(data){
             if(data===true){
+                document.querySelector('body').style.overflow = "hidden"  
+                this.state.scroll = document.querySelector('body').scrollTop
                 this.loadComments()
+            }else{
+                document.querySelector('body').style.overflowY = "auto"
+                document.querySelector('body').scrollTop = this.state.scroll 
             }
         },
     }
@@ -45,47 +57,53 @@ export default {
 
 <style scoped lang="scss">
 .backdrop{
-    position:absolute;
+    position:fixed;
     top: 0;
-    bottom: 0;
     left: 0;
     right: 0;
-    margin-top:-70px;
+    bottom: 0;
     background-color: rgba(0, 0, 0, .4);
     z-index: 100000;
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
-.alt{
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content:space-between;
+.close{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    opacity: .8;
+    color: #fff;
+    &:hover{
+        opacity: 1;
+        font-size: 35px;
+        transition: .3s;
+    }
 }
 .alt .img_atl {
-    flex:.6;
     & img {
         position:fixed;
     }
 }
 .alt .block_cmt{
-    flex:.4;
     & div{
         position: fixed;
     }
 }
 .atl_sup{
-    position: fixed;
     display: flex;
     flex-direction: row;
     margin-top: 10px;
     justify-content: space-between;
-    width: 98%;
-    bottom: 10px;
+    width: 100%;
     & div{
         width:130px;
     }
+}
+.comments{
+    width:100%;
+    height:100%;
 }
 .img_atl{
     display:flex;
@@ -94,5 +112,8 @@ export default {
 }
 .block{
      padding:10px;
+}
+.glob{
+    height: 80%;
 }
 </style>
