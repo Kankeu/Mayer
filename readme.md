@@ -2,8 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Grafikart/PSR15-CsrfMiddleware.svg?branch=master)](https://travis-ci.org/Grafikart/PSR15-CsrfMiddleware) [![Coverage Status](https://coveralls.io/repos/github/Grafikart/PSR15-CsrfMiddleware/badge.svg?branch=master)](https://coveralls.io/github/Grafikart/PSR15-CsrfMiddleware?branch=master)
 
-This middleware check every POST, PUT or DELETE request for a CSRF token.
-Token are persisted using an ArrayAccess compatible Session and are generated on demand.
+This site is a basic template for the e-commerces site. But you ca easily modify and customize
 
 ## Installation
 
@@ -15,7 +14,7 @@ composer require kankeu/mayer
 
 ```php
 make run
-// Start a server
+// Start a server on the port 8080
 ```
 
 
